@@ -1,51 +1,41 @@
 package com.example.Portifolio.Entidade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table (name = "docente")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class docente {
+    @Id
+    @Column(name = "id_docente")
     private long id_docente;
+    @Column(name = "nome")
     private String nome;
+    @Column(name = "id_curriculo")
     private long id_curriculo;
+    @Column(name = "email")
     private String email;
+    @Column(name = "senha")
+    @JsonIgnore
+    private String senha;
 
-    private docente(long id_curriculo, long id_docente, String nome, String email){
-        this.id_docente = id_docente;
-        this.email = email;
-        this.id_curriculo = id_curriculo;
-        this.nome = nome;
-
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public long getId_curriculo() {
-        return id_curriculo;
-    }
-
-    public long getId_docente() {
-        return id_docente;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setId_curriculo(long id_curriculo) {
-        this.id_curriculo = id_curriculo;
-    }
-
-    public void setId_docente(long id_docente) {
-        this.id_docente = id_docente;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    @OneToOne
+    @JoinColumn (name="id_curriculo")
+    private curriculo curriculo;
 }

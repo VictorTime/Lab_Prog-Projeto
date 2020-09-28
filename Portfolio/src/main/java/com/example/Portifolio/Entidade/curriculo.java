@@ -1,34 +1,33 @@
 package com.example.Portifolio.Entidade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table (name = "curriculo")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class curriculo {
+    @Id
+    @Column (name = "id_curriculo")
     private long id_curriculo;
-    private long[] id_atvs;
+    @Column (name = "id_atvs")
+    private long id_atvs;
+    @Column (name = "qualificacoes")
     private String qualificacoes;
 
-    public long[] getId_atvs() {
-        return id_atvs;
-    }
-
-    public long getId_curriculo() {
-        return id_curriculo;
-    }
-
-    public String getQualificacoes() {
-        return qualificacoes;
-    }
-
-    public void setId_atvs(long[] id_atvs) {
-        this.id_atvs = id_atvs;
-    }
-
-    public void setId_curriculo(long id_curriculo) {
-        this.id_curriculo = id_curriculo;
-    }
-
-    public void setQualificacoes(String qualificacoes) {
-        this.qualificacoes = qualificacoes;
-    }
+    @OneToMany
+    @JoinColumn (name="id_curriculo")
+    private curriculo curriculo;
 }

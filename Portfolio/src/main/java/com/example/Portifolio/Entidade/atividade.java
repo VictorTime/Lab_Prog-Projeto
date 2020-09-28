@@ -1,35 +1,30 @@
 package com.example.Portifolio.Entidade;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Table (name = "atividade")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class atividade {
+    //Precisa de um Id?
+    @Id
+    @Column (name = "id_atv")
     private long id_atv;
+    @Column (name = "resumo")
     private String resumo;
+    @Column (name = "link")
     private String link;
 
-    public long getId_atv() {
-        return id_atv;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public String getResumo() {
-        return resumo;
-    }
-
-    public void setId_atv(long id_atv) {
-        this.id_atv = id_atv;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public void setResumo(String resumo) {
-        this.resumo = resumo;
-    }
-    
+   
 }
