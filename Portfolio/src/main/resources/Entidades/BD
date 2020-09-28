@@ -1,3 +1,4 @@
+
 CREATE TABLE public.aluno (
 	matricula serial NOT NULL,
 	nome bpchar(255) NOT NULL,
