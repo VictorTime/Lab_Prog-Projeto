@@ -24,6 +24,8 @@ public class curriculo {
     private long id_curriculo;
     @Column (name = "id_atvs")
     private long id_atvs;
+    @Column (name = "escolaridade")
+    private String escolaridade;
     @Column (name = "qualificacoes")
     private String qualificacoes;
 

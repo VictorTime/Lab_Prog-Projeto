@@ -15,12 +15,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "aluno")
+@Table(name = "usuario")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class aluno {
+public class usuario {
     @Id
     @Column (name = "matricula")
     private long matricula;

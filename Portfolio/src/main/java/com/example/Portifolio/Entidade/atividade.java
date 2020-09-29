@@ -25,6 +25,5 @@ public class atividade {
     private String resumo;
     @Column (name = "link")
     private String link;
-
-   
+    
 }
