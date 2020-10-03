@@ -26,8 +26,8 @@ public class curriculo {
     private long id_atvs;
     @Column (name = "escolaridade")
     private String escolaridade;
-    @Column (name = "qualificacoes")
-    private String qualificacoes;
+    @Column (name = "formacao")
+    private String formacao;
 
     @OneToMany
     @JoinColumn (name="id_curriculo")
