@@ -30,9 +30,9 @@ public class usuario {
     private String nome;
     @Column (name = "email")
     private String email;
-    @Column(name="senha")
-    @JsonIgnore
-    private String senha;
+    //@Column(name="senha")
+    //@JsonIgnore
+    //private String senha;
 
     @OneToOne
     @JoinColumn (name="id_curriculo")

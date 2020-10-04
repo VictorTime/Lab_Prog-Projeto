@@ -21,9 +21,11 @@ public class atividade {
     @Id
     @Column (name = "id_atv")
     private long id_atv;
-    @Column (name = "resumo")
+    @Column (name = "Tipo de atividade")
+    private String tipo_atv;
+    @Column (name = "Resumo")
     private String resumo;
-    @Column (name = "link")
+    @Column (name = "Link_ext")
     private String link;
     
 }
