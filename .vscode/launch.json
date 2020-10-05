@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - PortifolioApplication",
+            "request": "launch",
+            "mainClass": "com.example.Portifolio.PortifolioApplication",
+            "projectName": "Portifolio"
+        },
+        {
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}"
             ],

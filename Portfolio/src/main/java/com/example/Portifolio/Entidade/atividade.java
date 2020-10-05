@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class atividade {
-    //Precisa de um Id?
+public class Atividade{
+
     @Id
     @Column (name = "id_atv")
     private long id_atv;
@@ -27,5 +27,6 @@ public class atividade {
     private String resumo;
     @Column (name = "Link_ext")
     private String link;
-    
+
 }
+

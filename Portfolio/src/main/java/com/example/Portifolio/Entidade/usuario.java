@@ -7,8 +7,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class usuario {
+public class Usuario {
     @Id
     @Column (name = "matricula")
     private long matricula;
@@ -36,6 +34,6 @@ public class usuario {
 
     @OneToOne
     @JoinColumn (name="id_curriculo")
-    private curriculo curriculo;
+    private Curriculo curriculo;
 
 }

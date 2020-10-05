@@ -13,16 +13,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table (name = "curriculo")
+@Table (name = "Curriculo")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class curriculo {
+public class Curriculo {
     @Id
     @Column (name = "id_curriculo")
     private long id_curriculo;
-    @Column (name = "id_atvs")
+    @Column (name = "id_atv")
     private long id_atvs;
     @Column (name = "escolaridade")
     private String escolaridade;
@@ -30,6 +30,6 @@ public class curriculo {
     private String formacao;
 
     @OneToMany
-    @JoinColumn (name="id_curriculo")
-    private curriculo curriculo;
+    @JoinColumn (name="id_atv")
+    private Atividade atividade;
 }
