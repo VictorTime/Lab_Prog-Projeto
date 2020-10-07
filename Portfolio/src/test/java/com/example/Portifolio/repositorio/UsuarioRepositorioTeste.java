@@ -2,8 +2,8 @@ package com.example.Portifolio.repositorio;
 
 import java.util.Optional;
 
-import com.example.Portifolio.Entidade.Usuario;
-import com.example.Portifolio.Repositorio.UsuarioRepositorio;
+import com.example.Portifolio.Entidade.usuario;
+import com.example.Portifolio.Repositorio.usuarioRepositorio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,15 +17,15 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class UsuarioRepositorioTeste {
 
     @Autowired
-    UsuarioRepositorio repositorio;
+    usuarioRepositorio repositorio;
 
     @Test
     public void deveVerificarSalvarUsuario() {
         // Cenário
-        Usuario user = Usuario.builder().nome("jonas").email("jonas@jonin.com").id_curriculo(1).matricula(2016948134)
+        usuario user = usuario.builder().nome("jonas").email("jonas@jonin.com").id_curriculo(1).matricula(2016948134)
                 .build();
         // Ação
-        Usuario salvo = repositorio.save(user);
+        usuario salvo = repositorio.save(user);
 
         // Verificação
         Assertions.assertNotNull(salvo);
@@ -38,15 +38,15 @@ public class UsuarioRepositorioTeste {
     @Test
     public void deveVerificarRemoverUsuario() {
         //cenário
-        Usuario user = Usuario.builder().nome("jonas")
+        usuario user = usuario.builder().nome("jonas")
                     .email("jonas@jonin.com")
                     .id_curriculo(1).matricula(2016948134).build();
         //ação
-        Usuario salvo = repositorio.save(user);  //salva
+        usuario salvo = repositorio.save(user);  //salva
         Long id = salvo.getMatricula();
         repositorio.deleteById(salvo.getMatricula());
         //verificação
-        Optional<Usuario> temp = repositorio.findById(id);
+        Optional<usuario> temp = repositorio.findById(id);
         Assertions.assertFalse(temp.isPresent());
     }
 }

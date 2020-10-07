@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Atividade{
+public class atividade{
     @Id
     @Column (value = "id_atv")
     private long id_atv;

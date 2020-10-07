@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public class usuario {
     @Id
     @Column (value = "matricula")
     private long matricula;
@@ -35,6 +35,6 @@ public class Usuario {
 
     @OneToOne
     @JoinColumn (name="id_curriculo")
-    private Curriculo curriculo;
+    private curriculo curriculo;
 
 }
