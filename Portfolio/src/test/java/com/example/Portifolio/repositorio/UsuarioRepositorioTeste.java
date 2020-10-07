@@ -3,7 +3,7 @@ package com.example.Portifolio.repositorio;
 import java.util.Optional;
 
 import com.example.Portifolio.Entidade.Usuario;
-import com.example.Portifolio.Repositorio.usuarioRepositorio;
+import com.example.Portifolio.Repositorio.UsuarioRepositorio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class UsuarioRepositorioTeste {
 
     @Autowired
-    usuarioRepositorio repositorio;
+    UsuarioRepositorio repositorio;
 
     @Test
     public void deveVerificarSalvarUsuario() {
