@@ -1,32 +1,34 @@
 package com.example.Portifolio.Entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table (name = "Curriculo")
+@EntityScan
+@Table (value = "Curriculo")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Curriculo {
     @Id
-    @Column (name = "id_curriculo")
+    @Column (value = "id_curriculo")
     private long id_curriculo;
-    @Column (name = "id_atv")
+    @Column (value = "id_atv")
     private long id_atvs;
-    @Column (name = "escolaridade")
+    @Column (value = "escolaridade")
     private String escolaridade;
-    @Column (name = "formacao")
+    @Column (value = "formacao")
     private String formacao;
 
     @OneToMany

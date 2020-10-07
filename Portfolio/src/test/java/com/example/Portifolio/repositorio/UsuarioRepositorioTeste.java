@@ -3,23 +3,21 @@ package com.example.Portifolio.repositorio;
 import java.util.Optional;
 
 import com.example.Portifolio.Entidade.Usuario;
-import com.example.Portifolio.Repositorio.UsuarioRepositorio;
+import com.example.Portifolio.Repositorio.usuarioRepositorio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class UsuarioRepositorioTeste {
 
     @Autowired
-    UsuarioRepositorio repositorio;
+    usuarioRepositorio repositorio;
 
     @Test
     public void deveVerificarSalvarUsuario() {
@@ -48,7 +46,7 @@ public class UsuarioRepositorioTeste {
         Long id = salvo.getMatricula();
         repositorio.deleteById(salvo.getMatricula());
         //verificação
-        Optional<Usuario> temp = repositorio.findById(id);        
+        Optional<Usuario> temp = repositorio.findById(id);
         Assertions.assertFalse(temp.isPresent());
     }
 }

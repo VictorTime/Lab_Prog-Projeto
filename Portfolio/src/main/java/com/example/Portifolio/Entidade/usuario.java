@@ -1,32 +1,33 @@
 package com.example.Portifolio.Entidade;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "usuario")
+@EntityScan
+@Table(value = "usuario")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
     @Id
-    @Column (name = "matricula")
+    @Column (value = "matricula")
     private long matricula;
-    @Column (name = "id_curriculo")
+    @Column (value = "id_curriculo")
     private long id_curriculo;
-    @Column (name = "nome")
+    @Column (value = "nome")
     private String nome;
-    @Column (name = "email")
+    @Column (value = "email")
     private String email;
     //@Column(name="senha")
     //@JsonIgnore
