@@ -4,26 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - PortifolioApplication",
-            "request": "launch",
-            "mainClass": "com.example.Portifolio.PortifolioApplication",
-            "projectName": "Portifolio"
-        },
-        {
-            "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}"
-            ],
-            "name": "Launch Extension",
-            "outFiles": [
-                "${workspaceFolder}/out/**/*.js"
-            ],
-            "preLaunchTask": "npm",
-            "request": "launch",
-            "type": "pwa-extensionHost"
-        },
         {
             "type": "java",
             "name": "Debug (Launch) - Current File",
@@ -32,10 +12,10 @@
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-PortfolioApplication<Portfolio>",
+            "name": "Debug (Launch)-PortifolioApplication<portifolio>",
             "request": "launch",
-            "mainClass": "dgport.Portfolio.PortfolioApplication",
-            "projectName": "Portfolio"
+            "mainClass": "lab.portifolio.PortifolioApplication",
+            "projectName": "portifolio"
         }
     ]
 }
