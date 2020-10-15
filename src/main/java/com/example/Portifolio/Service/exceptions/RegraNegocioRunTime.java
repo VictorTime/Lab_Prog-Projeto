@@ -1,4 +1,5 @@
-package lab.portifolio.service.exceptions;
+package com.example.Portifolio.Service.exceptions;
+
 
 public class RegraNegocioRunTime extends RuntimeException {
     

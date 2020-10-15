@@ -1,18 +1,21 @@
-package lab.portifolio.repositorioTeste;
+package Portifolio.repositorioTeste;
 
+import com.example.Portifolio.Entidade.Usuario;
+import com.example.Portifolio.Repositorio.UsuarioRepositorio;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import lab.portifolio.model.Usuario;
-import lab.portifolio.repositorio.UsuarioRepositorio;
+
 
 @ExtendWith(SpringExtension.class) // precisa do contexto
-@SpringBootTest
+@SpringBootTest(classes = UsuarioTest.class)
+@Configuration
 public class UsuarioTest {
     @Autowired // O atributo deve ser anotado com @Autowired
     UsuarioRepositorio repository;

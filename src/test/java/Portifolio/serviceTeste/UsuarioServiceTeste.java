@@ -1,7 +1,9 @@
-package lab.portifolio.serviceTeste;
+package Portifolio.serviceTeste;
 
-import java.util.Date;
-import java.util.List;
+import com.example.Portifolio.Entidade.Usuario;
+import com.example.Portifolio.Repositorio.UsuarioRepositorio;
+import com.example.Portifolio.Service.UsuarioService;
+import com.example.Portifolio.Service.exceptions.RegraNegocioRunTime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,14 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import lab.portifolio.model.Usuario;
-import lab.portifolio.repositorio.UsuarioRepositorio;
-import lab.portifolio.service.UsuarioService;
-import lab.portifolio.service.exceptions.RegraNegocioRunTime;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles()
 public class UsuarioServiceTeste {
 
     @Autowired
