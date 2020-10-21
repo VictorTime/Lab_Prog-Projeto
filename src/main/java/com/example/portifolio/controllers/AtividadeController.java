@@ -1,9 +1,9 @@
-package com.example.portifolio.controler;
+package com.example.portifolio.controllers;
 
 import java.util.List;
 
 import com.example.portifolio.dto.*;
-import com.labprog.portifolio.dto.AtividadeDTO;
+import com.example.portifolio.dto.AtividadeDTO;
 import com.example.portifolio.Entidade.atividade;
 import com.example.portifolio.Entidade.Usuario;
 import com.example.portifolio.Service.AtividadeService;
