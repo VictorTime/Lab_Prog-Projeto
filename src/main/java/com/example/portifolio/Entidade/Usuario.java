@@ -36,6 +36,6 @@ public class Usuario {
 
     @OneToOne
     @JoinColumn (name="id_curriculo")
-    private curriculo curriculo;
+    private Curriculo curriculo;
 
 }

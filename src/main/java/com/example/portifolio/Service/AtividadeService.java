@@ -1,19 +1,11 @@
-package com.example.portifolio.service;
+package com.example.portifolio.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-//import com.example.portifolio.entidades.atividade;
-//import com.example.portifolio.entidades.Posicao;
-//import com.example.portifolio.entidades.Usuario;
-//import com.example.portifolio.repositorio.curriculo;
-//import com.example.portifolio.repositorio.PosicaoRepository;
-//import com.example.portifolio.repositorio.UsuarioRepository;
-//import com.example.portifolio.Service.exceptions.RegraPortigolioRunTime;
 import com.example.portifolio.Entidade.*;
 import com.example.portifolio.Repositorio.*;
-import com.example.portifolio.service.exceptions.*;
-
+import com.example.portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -33,29 +25,30 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
-    public atividade salvar(atividade ativ) {    
+    Long var = null;
+
+    public Atividade salvar(Atividade ativ) {    
         verificaAtividade(ativ);
         return repository.save(ativ);
     }
 
-    public atividade atualizar(atividade ativ) {
+    public Atividade atualizar(Atividade ativ) {
         verificarId(ativ);
         return salvar(ativ);
     }
 
-    public void remover(atividade ativ) {        
+    public void remover(Atividade ativ) {        
         verificarId(ativ);
         repository.delete(ativ);
     }
 
     public void remover(long idAtividade) {        
-        Optional<atividade> ativ = repository.findById(idAtividade);
+        Optional<Atividade> ativ = repository.findById(idAtividade);
         remover(ativ.get());
     }
 
-
-    public List<atividade> buscar (atividade filtro) {
-        Example<atividade> example = 
+    public List<Atividade> buscar (Atividade filtro) {
+        Example<Atividade> example = 
         Example.of(filtro, ExampleMatcher.matching()
                                         .withIgnoreCase()
                                         .withStringMatcher(StringMatcher.CONTAINING)
@@ -63,27 +56,22 @@ public class AtividadeService {
 
         return repository.findAll(example);                                                           
     }
+    
 
-    private void verificarId(atividade ativ) {
-        if ((ativ == null) || (ativ.getId() == null))
-            throw new RegraPortifolioRunTime("atividade sem id");
+    private void verificarId(Atividade ativ) {
+        if ((ativ == null) || (ativ.getId_atv() == var))
+            throw new RegraPortifolioRunTime("Atividade sem id");
     }
 
-    private void verificaAtividade(atividade ativ) {
+    
+    private void verificaAtividade(Atividade ativ) {
         if(ativ == null)
-            throw new RegraNegocioRunTime("Um atividade válido deve ser informado");
+            throw new RegraPortifolioRunTime("Um Atividade válido deve ser informado");
 
-        if ((ativ.getNome() == null) 
-            || (ativ.getNome().equals("")))
-        throw new RegraNegocioRunTime("Nome do atividade precisa ser preenchido");
-
-        if(ativ.getUsuario() == null)
-            throw new RegraNegocioRunTime("Um atividade deve estar atrelado a um usuário válido");
-
-        Optional<Usuario> temp = usuarioRep.findById(ativ.getUsuario().getId());
-            if (!temp.isPresent())
-                throw new RegraNegocioRunTime("Usuário informado não consta na base");
-
+        if ((ativ.getDocente_relac() == null) 
+            || (ativ.getDocente_relac().equals("")))
+        throw new RegraPortifolioRunTime("Nome do Atividade precisa ser preenchido");
     }
+    
 
 }

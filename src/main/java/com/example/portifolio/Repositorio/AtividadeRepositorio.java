@@ -2,14 +2,14 @@ package com.example.portifolio.Repositorio;
 
 import java.util.Optional;
 
-import com.example.portifolio.Entidade.atividade;
+import com.example.portifolio.Entidade.Atividade;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface AtividadeRepositorio extends JpaRepository<atividade, Long> {
+public interface AtividadeRepositorio extends JpaRepository<Atividade, Long> {
         boolean existsByEmail(String email);
-        Optional<atividade> findByEmail(String email);
+        Optional<Atividade> findByEmail(String email);
 
 }

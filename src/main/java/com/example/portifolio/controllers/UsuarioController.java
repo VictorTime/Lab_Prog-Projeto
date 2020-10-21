@@ -1,12 +1,11 @@
-package com.example.portfolio.controller;
+package com.example.portifolio.controllers;
 
 import java.util.List;
 
-import com.example.portfolio.model.dto.InvestimentoSaldo;
-import com.example.portfolio.model.dto.UsuarioDTO;
-import com.example.portfolio.model.entidades.Usuario;
-import com.example.portfolio.service.UsuarioService;
-import com.example.portfolio.service.exceptions.RegraPortifolioRunTime;
+import com.example.portifolio.Entidade.Usuario;
+import com.example.portifolio.Service.UsuarioService;
+import com.example.portifolio.Service.exceptions.RegraPortifolioRunTime;
+import com.example.portifolio.dto.UsuarioDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,7 +39,7 @@ public class UsuarioController {  // Endereço raiz = "/api/usuarios"
                                     .email(dto.getEmail())
                                     .senha(dto.getSenha())
                                     .matricula(dto.getMatricula())
-                                    .id_curriculo(dto.getid_curriculo()).build();
+                                    .id_curriculo(dto.getId_curriculo()).build();
         try {
             Usuario salvo = service.salvar(usuario); // Se deu tudo certo  retorna um nio new ResponseEntity
             return new ResponseEntity(salvo, HttpStatus.CREATED); //
