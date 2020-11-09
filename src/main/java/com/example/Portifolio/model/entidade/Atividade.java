@@ -24,6 +24,8 @@ public class Atividade {
     @Id
     @Column (name = "id_atv")
     private long id_atv;
+    @Column (name = "titulo")
+    private String titulo;
     @Column (name = "Tipo de atividade")
     private String tipo_atv;
     @Column (name = "Resumo")

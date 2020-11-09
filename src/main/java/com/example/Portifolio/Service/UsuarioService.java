@@ -1,6 +1,5 @@
 package com.example.portifolio.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -52,9 +51,11 @@ public class UsuarioService {
         if ((usuario.getEmail() == null) || (usuario.getEmail().equals("")))
             throw new RegraPortifolioRunTime("Email deve ser informado");
         boolean teste = repository.existsByEmail(usuario.getEmail());
+        verficarMatricula(usuario);
         if (teste)
             throw new RegraPortifolioRunTime("Email informado já existe na base");
         if ((usuario.getSenha() == null) || (usuario.getSenha().equals("")))
             throw new RegraPortifolioRunTime("Usuário deve possui senha");
+        
     }
 }
