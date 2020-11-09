@@ -14,7 +14,7 @@
             "type": "java",
             "name": "Debug (Launch)-PortifolioApplication<portifolio>",
             "request": "launch",
-            "mainClass": "lab.portifolio.PortifolioApplication",
+            "mainClass": "com.example.portifolio.PortifolioApplication",
             "projectName": "portifolio"
         }
     ]

@@ -1,5 +1,4 @@
-package com.example.Portifolio;
-
+package com.example.portifolio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,4 +10,4 @@ public class PortifolioApplication {
 		SpringApplication.run(PortifolioApplication.class, args);
 	}
 
-}
+}	
