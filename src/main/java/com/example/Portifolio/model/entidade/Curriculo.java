@@ -1,10 +1,13 @@
 package com.example.portifolio.model.entidade;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -28,8 +31,11 @@ public class Curriculo {
     @Column (name = "formacao")
     private String formacao;
 
-    @ManyToOne
-    @JoinColumn(name = "id_atv")
-    private Atividade atividade;
+    @ManyToMany
+    @JoinTable(
+    name = "Curriculo_Atividade", 
+    joinColumns = @JoinColumn(name = "id_curriculo"), 
+    inverseJoinColumns = @JoinColumn(name = "id_atv"))
+    Set<Atividade> curAtividades;
 }
 

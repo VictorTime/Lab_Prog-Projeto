@@ -1,10 +1,11 @@
 package com.example.portifolio.model.entidade;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -33,8 +34,7 @@ public class Atividade {
     @Column (name = "Link_ext")
     private String link;
 
-    @ManyToOne
-    @JoinColumn(name = "id_curriculo")
-    private Curriculo curriculo;
+    @ManyToMany(mappedBy = "curAtividades")
+    Set<Curriculo> aCurriculos;
 }
 
