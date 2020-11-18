@@ -5,7 +5,9 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,5 +38,9 @@ public class Atividade {
 
     @ManyToMany(mappedBy = "curAtividades")
     Set<Curriculo> aCurriculos;
+
+    @OneToOne
+    @JoinColumn(name = "matricula")
+    private Usuario usuario;
 }
 
