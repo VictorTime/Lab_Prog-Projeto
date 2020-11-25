@@ -33,9 +33,9 @@ public class Curriculo {
 
     @ManyToMany
     @JoinTable(
-    name = "Curriculo_Atividade", 
-    joinColumns = @JoinColumn(name = "id_curriculo"), 
-    inverseJoinColumns = @JoinColumn(name = "id_atv"))
+        name = "Curriculo_Atividade", 
+        joinColumns = @JoinColumn(name = "id_curriculo"), 
+        inverseJoinColumns = @JoinColumn(name = "id_atv"))
     Set<Atividade> curAtividades;
 }
 

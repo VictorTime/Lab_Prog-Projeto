@@ -24,6 +24,8 @@ public class Usuario {
     private String nome;
     @Column (name = "email")
     private String email;
+    @Column (name = "tipo")
+    private int tipo;
     @Column(name="senha")
     @JsonIgnore
     private String senha;

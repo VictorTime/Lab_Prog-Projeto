@@ -8,9 +8,11 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class AtividadeDTO {
-	// na ordem que está no JSON
-    private String tipo;
+    // na ordem que está no JSON
+    private long id_atv;
+    private String tipo_atv;
+    private String resumo;
+    private String link;
     private String titulo;
-    private String tema;
-    private String docente_relac;
+    //private long matricula;
 }
