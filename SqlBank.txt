@@ -1,0 +1,52 @@
+-- Drop table
+
+-- DROP TABLE public.usuario;
+
+CREATE TABLE public.usuario (
+	matricula serial NOT NULL,
+	nome text NULL,
+	email text NULL,
+	senha text NULL,
+	CONSTRAINT aluno_pkey PRIMARY KEY (matricula)
+);
+
+
+-- Drop table
+
+-- DROP TABLE public.curriculo_atividade;
+
+CREATE TABLE public.curriculo_atividade (
+	id_curriculo int8 NOT NULL,
+	id_atv int8 NOT NULL,
+	CONSTRAINT id_atv FOREIGN KEY (id_atv) REFERENCES atividade(id_atv),
+	CONSTRAINT id_curriculo FOREIGN KEY (id_curriculo) REFERENCES curriculo(id_curriculo)
+);
+
+
+-- Drop table
+
+-- DROP TABLE public.curriculo;
+
+CREATE TABLE public.curriculo (
+	id_curriculo serial NOT NULL,
+	formacao text NOT NULL,
+	id_atv int4 NOT NULL,
+	escolaridade text NOT NULL,
+	CONSTRAINT curriculo_pkey PRIMARY KEY (id_curriculo),
+	CONSTRAINT id_atv FOREIGN KEY (id_atv) REFERENCES atividade(id_atv)
+);
+
+-- Drop table
+
+-- DROP TABLE public.atividade;
+
+CREATE TABLE public.atividade (
+	id_atv int4 NOT NULL,
+	"Tipo de atividade" text NULL,
+	"Resumo" text NULL,
+	"Link_ext" text NULL,
+	titulo text NULL,
+	matricula int8 NULL,
+	CONSTRAINT id_atv PRIMARY KEY (id_atv) INCLUDE (id_atv),
+	CONSTRAINT matricula FOREIGN KEY (matricula) REFERENCES usuario(matricula) NOT VALID
+);
