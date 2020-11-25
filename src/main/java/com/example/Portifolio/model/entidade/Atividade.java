@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Atividade {
 
     @Id
@@ -36,11 +35,13 @@ public class Atividade {
     @Column (name = "Link_ext")
     private String link;
 
-    @ManyToMany(mappedBy = "curAtividades")
-    Set<Curriculo> aCurriculos;
-
     @OneToOne
     @JoinColumn(name = "matricula")
     private Usuario usuario;
+    
+    @ManyToMany(mappedBy = "curAtividades")
+    Set<Curriculo> aCurriculos;
+
+    
 }
 
