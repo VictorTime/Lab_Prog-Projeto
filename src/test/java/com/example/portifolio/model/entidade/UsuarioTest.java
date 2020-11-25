@@ -2,7 +2,8 @@ package com.example.portifolio.model.entidade;
 
 import java.util.Optional;
 
-import com.example.portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.model.entidade.Usuario;
+import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
 
 
 import org.junit.jupiter.api.Assertions;

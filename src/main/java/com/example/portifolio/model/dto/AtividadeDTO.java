@@ -1,4 +1,4 @@
-package com.example.portifolio.model.dto;
+package com.example.Portifolio.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

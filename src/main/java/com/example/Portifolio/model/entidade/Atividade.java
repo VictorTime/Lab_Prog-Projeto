@@ -1,4 +1,4 @@
-package com.example.portifolio.model.entidade;
+package com.example.Portifolio.model.entidade;
 
 import java.util.Set;
 

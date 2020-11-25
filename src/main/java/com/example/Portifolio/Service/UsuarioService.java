@@ -1,12 +1,11 @@
-package com.example.portifolio.service;
+package com.example.Portifolio.Service;
 
 import java.util.Optional;
-
+import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.model.entidade.Usuario;
+import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 import javax.transaction.Transactional;
 
-import com.example.portifolio.model.entidade.Usuario;
-import com.example.portifolio.model.repositorio.UsuarioRepositorio;
-import com.example.portifolio.service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.portifolio.model.entidade;
+package com.example.Portifolio.model.entidade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,13 +1,13 @@
-package com.example.portifolio.service;
+package com.example.Portifolio.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.portifolio.model.entidade.Curriculo;
-import com.example.portifolio.model.repositorio.AtividadeRepositorio;
-import com.example.portifolio.model.repositorio.CurriculoRepositorio;
-import com.example.portifolio.model.repositorio.UsuarioRepositorio;
-import com.example.portifolio.service.exceptions.RegraPortifolioRunTime;
+import com.example.Portifolio.model.entidade.Curriculo;
+import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
+import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
+import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

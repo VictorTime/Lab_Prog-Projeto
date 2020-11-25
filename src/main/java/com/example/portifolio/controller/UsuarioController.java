@@ -1,12 +1,12 @@
-package com.example.portifolio.controller;
+package com.example.Portifolio.controller;
 
 
 
 
-import com.example.portifolio.model.dto.UsuarioDTO;
-import com.example.portifolio.model.entidade.Usuario;
-import com.example.portifolio.service.UsuarioService;
-import com.example.portifolio.service.exceptions.RegraPortifolioRunTime;
+import com.example.Portifolio.model.dto.UsuarioDTO;
+import com.example.Portifolio.model.entidade.Usuario;
+import com.example.Portifolio.Service.UsuarioService;
+import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

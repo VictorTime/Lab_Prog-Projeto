@@ -1,4 +1,4 @@
-package com.example.portifolio.service.exceptions;
+package com.example.Portifolio.Service.exceptions;
 
 // Só faz o tratamento da mensagem de erro
 public class RegraPortifolioRunTime extends RuntimeException{

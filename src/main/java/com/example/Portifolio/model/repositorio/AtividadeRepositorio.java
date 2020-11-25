@@ -1,6 +1,6 @@
-package com.example.portifolio.model.repositorio;
+package com.example.Portifolio.model.repositorio;
 
-import com.example.portifolio.model.entidade.Atividade;
+import com.example.Portifolio.model.entidade.Atividade;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

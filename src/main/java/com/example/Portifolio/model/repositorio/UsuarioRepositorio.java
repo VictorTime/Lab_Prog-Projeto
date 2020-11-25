@@ -1,8 +1,8 @@
-package com.example.portifolio.model.repositorio;
+package com.example.Portifolio.model.repositorio;
 
 import java.util.Optional;
 
-import com.example.portifolio.model.entidade.Usuario;
+import com.example.Portifolio.model.entidade.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
