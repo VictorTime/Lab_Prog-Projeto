@@ -1,18 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
 import React from 'react';
+import 'admin-lte/dist/css/adminlte.min.css'
+import 'admin-lte/plugins/fontawesome-free/css/all.min.css'
+
+import Atividades from './views/atividades'
+
 
 class App extends React.Component {
-  state = {
-    nome : ''
-  }
-  render() {
-    return(
-      <div>
-        <label> Nome:</label>
-        <input type="text" value={this.state.nome} />          
-      </div>
-    )
-  }
+
+    render() {
+       return(
+            <div className= "hold-transition sidebar-mini layout-fixed">
+                <div className= "wrapper">
+                   <Atividades />
+                </div>
+            </div>
+          
+        )
+    }
 }
+
+
 export default App;
+

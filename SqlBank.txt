@@ -46,7 +46,7 @@ CREATE TABLE public.atividade (
 	"Resumo" text NULL,
 	"Link_ext" text NULL,
 	titulo text NULL,
-	matricula int8 NULL,
+	matricula int8 NOT NULL,
 	CONSTRAINT id_atv PRIMARY KEY (id_atv) INCLUDE (id_atv),
 	CONSTRAINT matricula FOREIGN KEY (matricula) REFERENCES usuario(matricula) NOT VALID
 );
