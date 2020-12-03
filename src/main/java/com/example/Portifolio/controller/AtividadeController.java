@@ -4,6 +4,7 @@ import com.example.Portifolio.Service.AtividadeService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 import com.example.Portifolio.model.dto.AtividadeDTO;
 import com.example.Portifolio.model.entidade.Atividade;
+import com.example.Portifolio.model.entidade.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,9 @@ public class AtividadeController {
                                     .titulo(dto.getTitulo())
                                     .tipo_atv(dto.getTipo_atv())
                                     .resumo(dto.getResumo())
-                                    .link(dto.getLink()).build();
+                                    .link(dto.getLink())
+                                    .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
+                                    .build();
         try {
             Atividade salvo = service.salvar(atividade);
             return new ResponseEntity(salvo, HttpStatus.CREATED);

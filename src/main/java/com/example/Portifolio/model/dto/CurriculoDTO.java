@@ -7,12 +7,10 @@ import lombok.Data;
 @Data // Para n precisar implementar os requests posts e etc 
 @Builder
 @AllArgsConstructor
-public class AtividadeDTO {
-    // na ordem que está no JSON
-    private long id_atv;
-    private String tipo_atv;
-    private String resumo;
-    private String link;
-    private String titulo;
+public class CurriculoDTO {
+   
+    private long id_curriculo;
+    private String escolaridade;
+    private String formacao;
     private long matricula;
 }
