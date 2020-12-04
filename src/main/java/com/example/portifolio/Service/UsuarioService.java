@@ -1,19 +1,21 @@
-package com.example.portifolio.Service;
+package com.example.Portifolio.Service;
 
 import java.util.Optional;
 
-import com.example.portifolio.Entidade.Usuario;
-import com.example.portifolio.Repositorio.UsuarioRepositorio;
-import com.example.portifolio.Service.exceptions.*;
+import javax.transaction.Transactional;
+
+import com.example.Portifolio.model.entidade.Usuario;
+import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+
 
 
 @Service
 public class UsuarioService {
-
     Long test_var = null;
 
     @Autowired
@@ -49,10 +51,11 @@ public class UsuarioService {
         if ((usuario.getEmail() == null) || (usuario.getEmail().equals("")))
             throw new RegraPortifolioRunTime("Email deve ser informado");
         boolean teste = repository.existsByEmail(usuario.getEmail());
+        verficarMatricula(usuario);
         if (teste)
             throw new RegraPortifolioRunTime("Email informado já existe na base");
         if ((usuario.getSenha() == null) || (usuario.getSenha().equals("")))
             throw new RegraPortifolioRunTime("Usuário deve possui senha");
+        
     }
 }
-

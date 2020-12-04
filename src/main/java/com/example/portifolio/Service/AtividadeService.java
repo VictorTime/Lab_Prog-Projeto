@@ -1,11 +1,11 @@
-package com.example.portifolio.Service;
+package com.example.Portifolio.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.portifolio.Entidade.*;
-import com.example.portifolio.Repositorio.*;
-import com.example.portifolio.Service.exceptions.RegraPortifolioRunTime;
+import com.example.Portifolio.model.entidade.*;
+import com.example.Portifolio.model.repositorio.*;
+import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -68,8 +68,8 @@ public class AtividadeService {
         if(ativ == null)
             throw new RegraPortifolioRunTime("Um Atividade válido deve ser informado");
 
-        if ((ativ.getDocente_relac() == null) 
-            || (ativ.getDocente_relac().equals("")))
+        if ((ativ.getTitulo() == null) 
+            || (ativ.getTitulo().equals("")))
         throw new RegraPortifolioRunTime("Nome do Atividade precisa ser preenchido");
     }
     

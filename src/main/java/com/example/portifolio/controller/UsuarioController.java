@@ -55,4 +55,47 @@ public class UsuarioController {
         }
     }
 
+     @PutMapping("{id}")
+    public ResponseEntity atualizar(@PathVariable("id") Long idUsuario,
+                                    @RequestBody UsuarioDTO dto) {
+        try {
+            Usuario user = Usuario.builder()
+                                            .id(idUsuario)
+                                            .nome(dto.getNome())
+                                            .usuario(Usuario.builder().id(dto.getIdUsuario()).build())
+                                            .build();
+            Usuario salvo = service.atualizar(inv);
+            return ResponseEntity.ok(salvo);
+        }
+        catch (RegraNegocioRunTime e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }                                        
+
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity remover(@PathVariable("id") Long idUsuario) {
+        try {
+            Usuario inv = Usuario.builder().id(idUsuario).build();
+            service.remover(inv);
+            return ResponseEntity.ok(HttpStatus.NO_CONTENT);
+        }
+        catch(RegraNegocioRunTime e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/obter")
+    public ResponseEntity buscarUsuario(
+                        @RequestParam(value="usuario", required=true) Long idUsuario,
+                        @RequestParam(value="nome", required=false) String nome){
+
+        Usuario filtro = Usuario.builder()
+                                            .nome(nome)
+                                            .usuario(Usuario.builder().id(idUsuario).build())
+                                            .build();
+        List<Usuario> Usuarios = service.buscar(filtro);
+
+        return ResponseEntity.ok(Usuarios);
+
 }
