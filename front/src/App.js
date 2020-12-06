@@ -1,9 +1,13 @@
 
 import React from 'react';
-import 'admin-lte/dist/css/adminlte.min.css'
-import 'admin-lte/plugins/fontawesome-free/css/all.min.css'
 
-import Atividades from './views/atividades'
+
+import NavBar from './views/navbar'
+import SideBar from './views/sidebar'
+
+
+import Rotas from './rotas'
+/***/
 
 
 class App extends React.Component {
@@ -12,7 +16,9 @@ class App extends React.Component {
        return(
             <div className= "hold-transition sidebar-mini layout-fixed">
                 <div className= "wrapper">
-                   <Atividades />
+                   <NavBar href="#" label="Home" />
+                   <SideBar/>
+                   <Rotas/>
                 </div>
             </div>
           
