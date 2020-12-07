@@ -5,8 +5,8 @@ class AtividadeService extends ApiService {
         super('/api/atividades')
     }
 
-    obterInvestimentos(usuario) {
-        return this.get(`/obter?usuario=${usuario}`)
+    salvar(atividade){
+        
     }
 
     validar(atividade) {

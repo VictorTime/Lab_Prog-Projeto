@@ -40,4 +40,5 @@ public class AtividadeController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
 }

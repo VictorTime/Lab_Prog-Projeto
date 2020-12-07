@@ -22,9 +22,9 @@ function Sidebar() {
                   </a>
                 </li>
                 <li className="nav-item has-treeview">
-                  <a href="usuario.html" className="nav-link">
+                  <a href="curriculo.html" className="nav-link">
                     <i className="nav-icon fas fa-edit"></i>
-                    <p>Usuarios</p>
+                    <p>Curriculo</p>
                   </a>
                 </li>
                 <li className="nav-item has-treeview">

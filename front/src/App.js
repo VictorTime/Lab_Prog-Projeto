@@ -1,25 +1,32 @@
+
 import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Curriculo from './pages/Curriculo';
-import Atividade from './pages/Atividade'
+import 'admin-lte/dist/css/adminlte.min.css'
+import 'admin-lte/plugins/fontawesome-free/css/all.min.css'
+
+import NavBar from './views/navbar'
+import SideBar from './views/sidebar'
 
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/curriculo' component={Curriculo} />
-          <Route path='/atividade' component={Atividade} />
-        </Switch>
-      </Router>
-    </>
-  );
+import Rotas from './rotas'
+/***/
+
+
+class App extends React.Component {
+
+    render() {
+       return(
+            <div className= "hold-transition sidebar-mini layout-fixed">
+                <div className= "wrapper">
+                   <NavBar href="#" label="Home" />
+                   <SideBar/>
+                   <Rotas/>
+                </div>
+            </div>
+          
+        )
+    }
 }
 
+
 export default App;
+

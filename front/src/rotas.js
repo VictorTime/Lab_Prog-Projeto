@@ -2,7 +2,7 @@ import React from 'react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
 
 import Atividades from './views/atividades'
-import posicao    from './views/posicao'
+import Curriculo    from './views/Curriculo'
 
 
 function Rotas(props) {
@@ -11,7 +11,7 @@ function Rotas(props) {
           <HashRouter>
               <Switch>
                    <Route path = "/atividades" conponent = {Atividades}/>
-                   <Route path = "/posicao" conponent = {posicao}/>
+                   <Route path = "/curriculo" conponent = {Curriculo}/>
               </Switch>
           </HashRouter>
                    

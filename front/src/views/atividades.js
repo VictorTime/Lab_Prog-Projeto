@@ -1,15 +1,15 @@
 import React from 'react'
 
 
-import AtividadesTable from '../views/atividadestable'
-import SectionContent from '../views/sectionContent'
+import AtividadesTable from './AtividadesTable'
+import SectionContent from './sectionContent'
 
-import AtividadeService from '../views/AtividadeService'
+import AtividadeService from '../services/AtividadeService'
 
 class Atividades extends React.Component{
 
     state = {
-        ativiades : [],
+        atividades : [],
         ativ1 : 1,
         ativ2: 2
 
@@ -27,7 +27,7 @@ class Atividades extends React.Component{
     componentDidMount() {
         localStorage.setItem("_usuario", JSON.stringify(57))
 
-        this.service.obterInvestimentos(JSON.parse(localStorage.getItem("_usuario")))
+        this.service.obterAtividades(JSON.parse(localStorage.getItem("_usuario")))
         .then( response => {
             console.log(response.data)
             this.setState( {atividades : response.data} )
