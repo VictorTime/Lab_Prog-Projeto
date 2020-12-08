@@ -27,7 +27,7 @@ public class CurriculoService {
     @Autowired
     CurriculoRepositorio curricRep;
 
-    Long var = null;
+
 
     public Curriculo salvar(Curriculo curriculo) {    
         verificaCurriculo(curriculo);
@@ -61,7 +61,7 @@ public class CurriculoService {
     
 
     private void verificarId(Curriculo curriculo) {
-        if ((curriculo == null) || (curriculo.getId_curriculo() == var))
+        if ((curriculo == null) || (curriculo.getId_curriculo() == 0))
             throw new RegraPortifolioRunTime("Curriculo sem id");
     }
 

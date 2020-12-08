@@ -25,8 +25,6 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
-    Long var = null;
-
     public Atividade salvar(Atividade ativ) {    
         verificaAtividade(ativ);
         return repository.save(ativ);
@@ -59,7 +57,7 @@ public class AtividadeService {
     
 
     private void verificarId(Atividade ativ) {
-        if ((ativ == null) || (ativ.getId_atv() == var))
+        if ((ativ == null) || (ativ.getId_atv() == 0))
             throw new RegraPortifolioRunTime("Atividade sem id");
     }
 

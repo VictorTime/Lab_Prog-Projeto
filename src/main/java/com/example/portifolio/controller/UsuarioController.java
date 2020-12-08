@@ -6,18 +6,20 @@ import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.example.Portifolio.Service.UsuarioService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -35,8 +37,10 @@ public class UsuarioController {
     }
 
     
-    @PostMapping("/salvar")
-    public ResponseEntity salvar(@RequestBody UsuarioDTO dto) {
+    @PostMapping(value = "/salvar",
+    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity salvar( @RequestBody UsuarioDTO dto) {
+        
         Usuario usuario = Usuario.builder()
                                     .matricula(dto.getMatricula())
                                     .nome(dto.getNome())
@@ -56,8 +60,8 @@ public class UsuarioController {
     public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {
 
         try {
-            service.efetuarLogin(dto.getEmail(), dto.getSenha());
-            return ResponseEntity.ok(true);
+            Usuario autenticado = service.efetuarLogin(dto.getEmail(), dto.getSenha());
+            return new ResponseEntity(autenticado, HttpStatus.OK);
             
         } catch(RegraPortifolioRunTime e) {
             return ResponseEntity.badRequest().body(e.getMessage());

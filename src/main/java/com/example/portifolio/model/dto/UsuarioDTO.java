@@ -1,17 +1,24 @@
 package com.example.Portifolio.model.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data // Para n precisar implementar os requests posts e etc 
+// Para n precisar implementar os requests posts e etc
+
+@Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class UsuarioDTO {
-	// na ordem que está no JSON
-    private String nome;
+    // na ordem que está no JSON
+    private long matricula;
     private String email;
-    private String senha;
+    private String nome;
     private int tipo;
-    private long   matricula;
+    private String senha;
+   
 }

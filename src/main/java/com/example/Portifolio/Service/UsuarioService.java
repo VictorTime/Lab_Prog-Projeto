@@ -15,19 +15,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
-    Long test_var = null;
 
     @Autowired
     UsuarioRepositorio repository;
 
-    public boolean efetuarLogin(String email, String senha) {
+    public Usuario efetuarLogin(String email, String senha) {
         Optional<Usuario> usr = repository.findByEmail(email);
         if (!usr.isPresent())
             throw new RegraPortifolioRunTime("Erro de autenticação. Email informado não encontrado");
         if (!usr.get().getSenha().equals(senha))
             throw new RegraPortifolioRunTime("Erro de autenticação. Senha inválida");
-
-        return true;
+        Usuario user = repository.ObterUsuario(email);
+        return user;
     }
 
     @Transactional
@@ -38,7 +37,7 @@ public class UsuarioService {
 
 
     private void verficarMatricula(Usuario usuario) {
-        if ((usuario == null) || (usuario.getMatricula() == test_var))
+        if ((usuario == null) || (usuario.getMatricula() == 0))
             throw new RegraPortifolioRunTime("Usuario inválido");
     }
 

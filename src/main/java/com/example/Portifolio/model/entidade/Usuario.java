@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Usuario {
+    
     @Id
     @Column (name = "matricula")
     private long matricula;
