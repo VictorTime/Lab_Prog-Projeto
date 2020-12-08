@@ -87,4 +87,22 @@ public class AtividadeController {
         }
     }
 
+    @PostMapping("/validar")
+    public ResponseEntity validar(@PathVariable("matricula") Long matricula,
+                                @RequestBody AtividadeDTO dto) {
+        
+    
+        Atividade filtro = Atividade.builder()
+                                    .tipo_atv(dto.getTipo_atv())
+                                    .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
+                                    .build();
+        try {
+            service.validar(matricula, filtro);
+            return new ResponseEntity(HttpStatus.OK);
+            
+        } catch(RegraPortifolioRunTime e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }

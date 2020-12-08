@@ -25,6 +25,7 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
+
     public Atividade salvar(Atividade ativ) {    
         verificaAtividade(ativ);
         return repository.save(ativ);
@@ -61,6 +62,14 @@ public class AtividadeService {
             throw new RegraPortifolioRunTime("Atividade sem id");
     }
 
+    public boolean validar(Long matricula, Atividade ativ){
+        verificarId(ativ);
+        if( matricula != ativ.getUsuario().getMatricula() )
+            throw new RegraPortifolioRunTime("usuario invalido para validar");
+        return true;
+
+
+    }
     
     private void verificaAtividade(Atividade ativ) {
         if(ativ == null)
