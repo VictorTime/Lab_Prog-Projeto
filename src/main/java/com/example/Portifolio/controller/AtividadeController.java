@@ -4,6 +4,7 @@ import com.example.Portifolio.Service.AtividadeService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 import com.example.Portifolio.model.dto.AtividadeDTO;
 import com.example.Portifolio.model.entidade.Atividade;
+import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.entidade.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,10 @@ public class AtividadeController {
                                     .resumo(dto.getResumo())
                                     .link(dto.getLink())
                                     .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
+                                    .aCurriculos(dto.getACurriculos())
                                     .build();
+
+        
         try {
             Atividade salvo = service.salvar(atividade);
             return new ResponseEntity(salvo, HttpStatus.CREATED);
@@ -51,11 +55,13 @@ public class AtividadeController {
                                     @RequestBody AtividadeDTO dto) {
         try {
             Atividade pos = Atividade.builder()
-                                        .id_atv(idAtividade)
-                                        .tipo_atv(dto.getTipo_atv())
-                                        .link(dto.getLink())
-                                        .titulo(dto.getTitulo())
-                                        .build();
+                                            .titulo(dto.getTitulo())
+                                            .tipo_atv(dto.getTipo_atv())
+                                            .resumo(dto.getResumo())
+                                            .link(dto.getLink())
+                                            .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
+                                            .aCurriculos(dto.getACurriculos())
+                                            .build();
             Atividade salvo = service.atualizar(pos);
             return ResponseEntity.ok(salvo);
         }

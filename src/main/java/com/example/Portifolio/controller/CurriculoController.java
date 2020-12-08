@@ -38,6 +38,7 @@ public class CurriculoController {
                                     .escolaridade(dto.getEscolaridade())
                                     .formacao(dto.getFormacao())
                                     .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
+                                    .curAtividades(dto.getCurAtividades())
                                     .build();
         try {
             Curriculo salvo = service.salvar(curriculo);

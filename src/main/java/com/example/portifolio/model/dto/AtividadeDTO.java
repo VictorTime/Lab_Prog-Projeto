@@ -1,15 +1,21 @@
 package com.example.Portifolio.model.dto;
 
+import java.util.Set;
+
+import com.example.Portifolio.model.entidade.Curriculo;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data // Para n precisar implementar os requests posts e etc 
+// Para n precisar implementar os requests posts e etc 
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AtividadeDTO {
+public class AtividadeDTO 
+{
     // na ordem que está no JSON
     private long id_atv;
     private String tipo_atv;
@@ -17,4 +23,6 @@ public class AtividadeDTO {
     private String link;
     private String titulo;
     private long matricula;
+    Set<Curriculo> aCurriculos;
+
 }
