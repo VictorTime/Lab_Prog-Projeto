@@ -1,5 +1,6 @@
 import React from 'react'
 import UsuarioService from '../services/UsuarioService';
+import UsuarioTable from '../tables/UsuarioTable'
 
 class Usuario extends React.Component {
 
@@ -32,8 +33,6 @@ class Usuario extends React.Component {
                 <table className = "table table-striped">
                     <thead>
                         <tr>
-
-                            <td> Matricula</td>
                             <td> Nome</td>
                             <td> Email</td>
                             <td> Tipo</td>
@@ -61,4 +60,4 @@ class Usuario extends React.Component {
     }
 }
 
-export default UsuarioComponente
+export default Usuario

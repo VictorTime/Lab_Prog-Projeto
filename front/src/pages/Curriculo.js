@@ -1,9 +1,9 @@
 import React from 'react'
 
-import CurriculoTable from './CurriculoTable'
+import CurriculoTable from '../tables/CurriculoTable'
 import CurriculoService from '../services/CurriculoService'
 
-import SectionContent from './sectionContent'
+import SectionContent from '../views/sectionContent'
 
 class Curriculo extends React.Component {
     

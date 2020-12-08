@@ -1,18 +1,18 @@
 import React from 'react' 
 
 
-function AtividadesTable(props){
+function UsuariosTable(props){
 
-	  const row = props.atividades.map ( Atividades => {
+	  const row = props.Usuarios.map ( Usuarios => {
 	  	return(
-             <tr key = {Atividades.id}>
-                        <td>{Atividades.nome}</td>
-                        <td>{Atividades.qnt_questoes}</td>  
-                        <td>{Atividades.data}</td>                  
+             <tr key = {Usuarios.matricula}>
+                        <td>{Usuarios.nome}</td>
+                        <td>{Usuarios.email}</td>  
+                        <td>{Usuarios.tipo}</td>                  
                         <td>
                             <div class="btn-group">
-                                <button onclick="window.location.href=&#39;form_posicao.html&#39;" type="button" class="btn btn-info">Adicionar Posição</button>
-                                <button onclick="window.location.href=&#39;form_atividade.html&#39;" type="button" class="btn btn-warning">Editar</button>
+                                <button onclick="window.location.href=&#39;#/usuario&#39;" type="button" class="btn btn-info">Adicionar Posição</button>
+                                <button onclick="window.location.href=&#39;#/usuario&#39;" type="button" class="btn btn-warning">Editar</button>
                                 <button onclick="button" class="btn btn-danger">Remover</button>
                           </div>                        
                      </td>
@@ -46,4 +46,4 @@ function AtividadesTable(props){
 }
 
 
-export default AtividadesTable
+export default UsuariosTable

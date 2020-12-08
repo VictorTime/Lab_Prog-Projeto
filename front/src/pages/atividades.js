@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-import AtividadesTable from './AtividadesTable'
-import SectionContent from './sectionContent'
+import AtividadesTable from '../tables/AtividadesTable'
+import SectionContent from '../views/sectionContent'
 
 import AtividadeService from '../services/AtividadeService'
 
