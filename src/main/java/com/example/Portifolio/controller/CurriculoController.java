@@ -11,6 +11,7 @@ import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,8 @@ public class CurriculoController {
     @Autowired
     CurriculoService service;
 
-    @PostMapping
+    @PostMapping(value = "/salvar",
+    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity salvar(@RequestBody CurriculoDTO dto) {
         Curriculo curriculo = Curriculo.builder()
                                     .id_curriculo(dto.getId_curriculo())

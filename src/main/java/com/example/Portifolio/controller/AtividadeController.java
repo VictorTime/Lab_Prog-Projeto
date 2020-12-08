@@ -10,6 +10,7 @@ import com.example.Portifolio.model.entidade.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +29,8 @@ public class AtividadeController {
     @Autowired
     AtividadeService service;
 
-    @PostMapping
+    @PostMapping(value = "/salvar",
+    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity salvar(@RequestBody AtividadeDTO dto) {
         
         Atividade atividade = Atividade.builder()
