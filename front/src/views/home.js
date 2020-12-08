@@ -14,7 +14,7 @@ class Home extends React.Component {
                     <Navbar />
                     <Sidebar />
                     <div className="content-wrapper">
-                       <sectionHeader title="Inestimentos"/>
+                       <sectionHeader title="Investimentos"/>
                         <sectionContent>
                             <div className="card-body">
                             </div>    

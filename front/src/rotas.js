@@ -1,5 +1,6 @@
 import React from 'react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
+import UsuarioComponente from './components/UsuarioComponent'
 
 import Atividades from './views/atividades'
 import Curriculo    from './views/Curriculo'
@@ -10,8 +11,9 @@ function Rotas(props) {
 
           <HashRouter>
               <Switch>
-                   <Route path = "/atividades" conponent = {Atividades}/>
-                   <Route path = "/curriculo" conponent = {Curriculo}/>
+                   <Route path = "/atividades" component = {Atividades}/>
+                   <Route path = "/curriculo" component = {Curriculo}/>
+                   <Route path = "/usuario" component = {UsuarioComponente} ></Route>
               </Switch>
           </HashRouter>
                    

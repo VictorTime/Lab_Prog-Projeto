@@ -8,7 +8,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
+import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
 import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.model.entidade.Atividade;
 import com.example.Portifolio.model.entidade.Usuario;
 
 @EnableWebMvc
@@ -27,6 +30,13 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 	
 	@Autowired
 	private UsuarioRepositorio repository;
+
+	@Autowired
+	private CurriculoRepositorio curRepository;
+
+	@Autowired 
+	private AtividadeRepositorio atvRepository;
+	
 
 	@Override
     public void run(String...args) throws Exception {

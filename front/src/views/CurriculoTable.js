@@ -3,12 +3,12 @@ import React from 'react'
 
 function CurriculoTable(props){
 
-	  const row = props.curriculos.map ( Curriculo => {
+	  const row = props.curriculo.map ( Curriculo => {
 	  	return(
-             <tr key = {Curriculos.id_curriculo}>
-                        <td>{Curriculos.escolaridade}</td>
-                        <td>{Curriculos.formacao}</td>  
-                        <td>{Curriculos.matricula}</td>                  
+             <tr key = {Curriculo.id_curriculo}>
+                        <td>{Curriculo.escolaridade}</td>
+                        <td>{Curriculo.formacao}</td>  
+                        <td>{Curriculo.matricula}</td>                  
                         <td>
                             <div class="btn-group">
                                 <button onclick="window.location.href=&#39;form_posicao.html&#39;" type="button" class="btn btn-info">Adicionar Posição</button>

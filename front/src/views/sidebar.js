@@ -16,19 +16,19 @@ function Sidebar() {
                   role="menu" 
                   data-accordion="false">
                 <li className="nav-item has-treeview">
-                  <a href="home.html" className="nav-link">
+                  <a href="#/home" className="nav-link">
                     <i className="nav-icon fas fa-tachometer-alt"></i>
                     <p>Home</p>
                   </a>
                 </li>
                 <li className="nav-item has-treeview">
-                  <a href="curriculo.html" className="nav-link">
+                  <a href="#/curriculo" className="nav-link">
                     <i className="nav-icon fas fa-edit"></i>
                     <p>Curriculo</p>
                   </a>
                 </li>
                 <li className="nav-item has-treeview">
-                  <a href="atividades.html" className="nav-link">
+                  <a href="#/atividades" className="nav-link">
                     <i className="nav-icon fas fa-edit"></i>
                     <p>Atividades</p>
                   </a>

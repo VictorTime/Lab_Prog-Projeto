@@ -1,15 +1,20 @@
 import React from 'react'
 import UsuarioService from '../services/UsuarioService';
 
-class UserComponent extends React.Component {
+class Usuario extends React.Component {
+
+    state={
+        usuario:[]
+    }
 
     constructor(){
         super()
-        this.service = new UsuarioService.service()
+        this.service = new UsuarioService()
         }
 
 
     componentDidMount(){
+
         this.service.obterUsuarios()
             .then((response) => {
                 console.log(response.data)
@@ -23,15 +28,15 @@ class UserComponent extends React.Component {
     render (){
         return (
             <div>
-                <h1 className = "text-center"> Users List</h1>
+                <h1 className = "text-center">Lista de Usuarios</h1>
                 <table className = "table table-striped">
                     <thead>
                         <tr>
 
-                            <td> Usuario Matricula</td>
-                            <td> Usuario Nome</td>
-                            <td> Usuario Email</td>
-                            <td> Usuario Tipo</td>
+                            <td> Matricula</td>
+                            <td> Nome</td>
+                            <td> Email</td>
+                            <td> Tipo</td>
                         </tr>
 
                     </thead>
@@ -56,4 +61,4 @@ class UserComponent extends React.Component {
     }
 }
 
-export default UserComponent
+export default UsuarioComponente
