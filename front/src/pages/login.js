@@ -1,9 +1,15 @@
 import React from 'react'
+import UsuarioService from '../services/UsuarioService';
 
 class Login extends React.Component {
-    constructor(props) {
-      super(props);
+      
+
+
+      constructor() {
+      super();
+      this.service = new UsuarioService()
       this.state = {
+        usuario : {email :"" , senha: ""},
         email:"",
         senha:""
       };
@@ -11,7 +17,17 @@ class Login extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
 
     }
-  
+    
+    componentDidMount(){
+
+      this.service.autenticar(this.state.usuario)
+          .then((response) => {
+              console.log(response.data)
+              this.setState( {usuario:response.data}  )
+          }).catch (erro =>{
+              console.log(erro.response)
+          })
+  }
     handleSubmit(event) {
         alert('email foi ' + this.state.email);
         event.preventDefault();
@@ -24,7 +40,7 @@ class Login extends React.Component {
            Email:
             <input
               type="text"
-              email = {this.state.email}
+              email = {this.state.usuario.email}
             />
           </label>
           <br />
@@ -32,7 +48,7 @@ class Login extends React.Component {
             Senha
             <input
               type="text"
-              senha={this.state.senha}
+              senha={this.state.usuario.senha}
              />
           </label>
           <input type="submit" value="Enviar" />

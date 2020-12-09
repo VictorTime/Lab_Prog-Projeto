@@ -9,8 +9,8 @@ class UsuarioService extends ApiService {
         return this.get("/allusuarios")
     }
 
-    validar(usuario) {
-
+    autenticar(usuario) {
+        return this.post(`/autenticar?usuario=${usuario}`)
     }
 
     cadastrar(usuario) {

@@ -40,8 +40,8 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 
 	@Override
     public void run(String...args) throws Exception {
-        this.repository.save(new Usuario(37777283,"Ramesh", "rameshffff@gmail.com",0,"kkaksdj"));
-        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"kkaksdj"));
-        this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"masmdmas"));
+        this.repository.save(new Usuario(37777283,"Ramesh", "rameshffff@gmail.com",0,"1"));
+        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"1"));
+        this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"1"));
     }
 }	
