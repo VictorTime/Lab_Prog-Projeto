@@ -11,10 +11,7 @@ class Atividades extends React.Component{
 
     
     state = {
-        atividades : [],
-        ativ1 : 1,
-        ativ2: 2
-
+        atividades : []
     }
 
     constructor() {
@@ -43,9 +40,6 @@ class Atividades extends React.Component{
 
         return (
             <>
-                <input value={this.state.ativ1}
-                        onChange={(e) => {this.setState( {ativ1 : e.target.value} )}} />
-
                 <div className="content-wrapper">
                     <AtividadesTable 
                                     className="table table-bordered table-hover"

@@ -8,9 +8,7 @@ import SectionContent from '../views/sectionContent'
 class Curriculo extends React.Component {
     
     state = {
-        curriculo :[],
-        curr1 : 1,
-        curr2 : 2 
+        curriculo :[]
     }
 
     constructor() {
@@ -39,9 +37,6 @@ class Curriculo extends React.Component {
 
         return (
             <>
-                <input value={this.state.curr1}
-                        onChange={(e) => {this.setState( {curr1 : e.target.value} )}} />
-
                 <div className="content-wrapper">
                     <CurriculoTable 
                                     className="table table-bordered table-hover"
