@@ -16,7 +16,7 @@ function Sidebar() {
                   role="menu" 
                   data-accordion="false">
                 <li className="nav-item has-treeview">
-                  <a href="#/usuarios" className="nav-link">
+                  <a href="#/usuario" className="nav-link">
                     <i className="nav-icon fas fa-tachometer-alt"></i>
                     <p>Usuarios</p>
                   </a>

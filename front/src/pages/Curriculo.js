@@ -38,9 +38,6 @@ class Curriculo extends React.Component {
         return (
             <>
                 <div className="content-wrapper">
-                    <CurriculoTable 
-                                    className="table table-bordered table-hover"
-                                    curriculo={this.state.curriculo} />
                     <section className="content-header">
                     <div className="container-fluid">
                         <div className="row mb-2">
@@ -49,20 +46,6 @@ class Curriculo extends React.Component {
                         </div>
                     </div>
                     </section>
-
-                    <SectionContent>
-
-                        <div className="card-body">
-                            <div className="box-header">
-                                <button  type="submit" className="btn btn-primary">Adicionar nova atividade</button>
-                            </div>
-                        </div>
-
-                        <CurriculoTable
-                                    className="table table-bordered table-hover"
-                                    curriculo={this.state.curriculo} />
-                    </SectionContent> 
-                                
                 </div>
             </>
         )

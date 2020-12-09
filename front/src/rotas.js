@@ -7,7 +7,7 @@ import Atividades from './pages/atividades'
 import Curriculo    from './pages/Curriculo'
 import Login from './pages/login'
 
-
+//Define as urls que poderão ser acessadas
 function Rotas(props) {
 	return (
 

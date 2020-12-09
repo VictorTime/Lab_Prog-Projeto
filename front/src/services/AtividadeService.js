@@ -9,16 +9,13 @@ class AtividadeService extends ApiService {
         return this.get(`/obter?usuario=${usuario}`)
     }
     salvar(atividade){
-        
+        return this.post(`/salvar?atividade=${atividade}`)
     }
 
-    validar(atividade) {
-
+    validar(usuario) {
+        return this.post(`/validar?usuario=${usuario}`)
     }
 
-    cadastrar(atividade) {
-
-    }
 }
 
 export default AtividadeService

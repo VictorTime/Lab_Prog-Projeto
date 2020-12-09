@@ -1,15 +1,16 @@
 import React from 'react'
 import UsuarioService from '../services/UsuarioService';
 
-class Login extends React.Component {
-      
 
 
-      constructor() {
-      super();
+
+
+class Login extends React.Component {      
+
+      constructor(props) {
+      super(props);
       this.service = new UsuarioService()
       this.state = {
-        usuario : {email :"" , senha: ""},
         email:"",
         senha:""
       };
@@ -19,11 +20,10 @@ class Login extends React.Component {
     }
     
     componentDidMount(){
-
-      this.service.autenticar(this.state.usuario)
+      
+      this.service.autenticar(this.state.email, this.state.senha)
           .then((response) => {
-              console.log(response.data)
-              this.setState( {usuario:response.data}  )
+            console.log(response.data)
           }).catch (erro =>{
               console.log(erro.response)
           })
@@ -40,16 +40,17 @@ class Login extends React.Component {
            Email:
             <input
               type="text"
-              email = {this.state.usuario.email}
-            />
+              value = {this.state.email}
+              onChange={(e) => this.setState({email:e.target.value})}/>
+            
           </label>
           <br />
           <label>
             Senha
             <input
               type="text"
-              senha={this.state.usuario.senha}
-             />
+              value ={this.state.senha}
+              onChange={(e) => this.setState({senha:e.target.value})}/>
           </label>
           <input type="submit" value="Enviar" />
         </form>

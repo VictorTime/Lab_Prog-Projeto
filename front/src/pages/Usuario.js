@@ -28,7 +28,16 @@ class Usuario extends React.Component {
     
     render (){
         return (
-            <div>
+                <div className="content-wrapper">
+                    <section className="content-header">
+                    <div className="container-fluid">
+                        <div className="row mb-2">
+                        <div className="col-sm-6">
+                        </div>
+                        </div>
+                    </div>
+                    </section>
+                
                 <h1 className = "text-center">Lista de Usuarios</h1>
                 <table className = "table table-striped">
                     <thead>

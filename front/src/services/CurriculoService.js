@@ -1,4 +1,5 @@
 import ApiService from '../ApiService'
+import Curriculo from '../pages/Curriculo'
 
 class CurriculoService extends ApiService {
     constructor () {
@@ -9,12 +10,9 @@ class CurriculoService extends ApiService {
         return this.get(`/obter?usuario=${usuario}`)
     }
 
-    validar(investimento) {
 
-    }
-
-    cadastrar(investimento) {
-
+    salvar(curriculo) {
+        return this.post(`/salvar?curriculo=${curriculo}`)
     }
 }
 
