@@ -39,8 +39,8 @@ class Curriculo extends React.Component {
 
         return (
             <>
-                <input value={this.state.ativ1}
-                        onChange={(e) => {this.setState( {ativ1 : e.target.value} )}} />
+                <input value={this.state.curr1}
+                        onChange={(e) => {this.setState( {curr1 : e.target.value} )}} />
 
                 <div className="content-wrapper">
                     <CurriculoTable 
@@ -54,6 +54,19 @@ class Curriculo extends React.Component {
                         </div>
                     </div>
                     </section>
+
+                    <SectionContent>
+
+                        <div className="card-body">
+                            <div className="box-header">
+                                <button  type="submit" className="btn btn-primary">Adicionar nova atividade</button>
+                            </div>
+                        </div>
+
+                        <CurriculoTable
+                                    className="table table-bordered table-hover"
+                                    curriculo={this.state.curriculo} />
+                    </SectionContent> 
                                 
                 </div>
             </>

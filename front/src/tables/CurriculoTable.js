@@ -11,9 +11,12 @@ function CurriculoTable(props){
                         <td>{Curriculo.matricula}</td>                  
                         <td>
                             <div class="btn-group">
-                                <button onclick="window.location.href=&#39;form_posicao.html&#39;" type="button" class="btn btn-info">Adicionar Posição</button>
-                                <button onclick="window.location.href=&#39;form_curriculo.html&#39;" type="button" class="btn btn-warning">Editar</button>
-                                <button onclick="button" class="btn btn-danger">Remover</button>
+                                <button onclick="window.location.href=&#39;#/curriculo&#39;" type="button" class="btn btn-info">
+                                  Adicionar Posição</button>
+                                <button onclick="window.location.href=&#39;#/curriculo&#39;" type="button" class="btn btn-warning">
+                                  Editar</button>
+                                <button onclick="button" class="btn btn-danger">
+                                  Remover</button>
                           </div>                        
                      </td>
                
