@@ -5,9 +5,11 @@ import AtividadesTable from '../tables/AtividadesTable'
 import SectionContent from '../views/sectionContent'
 
 import AtividadeService from '../services/AtividadeService'
+import { Link } from 'react-router-dom'
 
 class Atividades extends React.Component{
 
+    
     state = {
         atividades : [],
         ativ1 : 1,
@@ -61,7 +63,9 @@ class Atividades extends React.Component{
 
                         <div className="card-body">
                             <div className="box-header">
+                                <Link to= "/cadastro">
                                 <button  type="submit" className="btn btn-primary">Adicionar nova atividade</button>
+                                </Link>
                             </div>
                         </div>
 
