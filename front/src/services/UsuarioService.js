@@ -9,12 +9,12 @@ class UsuarioService extends ApiService {
         return this.get("/allusuarios")
     }
 
-    autenticar(email,senha) {
-        return this.post(`/autenticar?email=${email}?senha=${senha}`)
+    autenticar(usuario, options) {
+        return this.post(`/autenticar?usuario=${usuario}`,options)
     }
 
-    salvar(usuario) {
-        return this.post(`/salvar?usuario=${usuario}`)
+    salvar(usuario,options) {
+        return this.post(`/salvar?usuario=${usuario}`,options)
     }
 }
 
