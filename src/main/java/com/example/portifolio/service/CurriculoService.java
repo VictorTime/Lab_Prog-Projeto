@@ -27,6 +27,9 @@ public class CurriculoService {
     @Autowired
     CurriculoRepositorio curricRep;
 
+    public List<Curriculo> obterCurriculos() {
+        return curricRep.findAll();
+    }
 
 
     public Curriculo salvar(Curriculo curriculo) {    

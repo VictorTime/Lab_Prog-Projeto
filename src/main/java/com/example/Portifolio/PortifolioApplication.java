@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,10 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
 import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
 import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
-import com.example.Portifolio.model.entidade.Atividade;
 import com.example.Portifolio.model.entidade.Usuario;
-
-
 
 @EnableWebMvc
 @SpringBootApplication
@@ -43,8 +39,8 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 
 	@Override
     public void run(String...args) throws Exception {
-        this.repository.save(new Usuario(37777283,"Ramesh", "rameshffff@gmail.com",0,"1"));
-        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"1"));
-        this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"1"));
+        this.repository.save(new Usuario(37777283,"Ramesh", "rameshffff@gmail.com",0,"kkaksdj"));
+        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"kkaksdj"));
+        this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"masmdmas"));
     }
 }	

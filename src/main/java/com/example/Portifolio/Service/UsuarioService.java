@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import java.util.List;
 
 
 @Service
@@ -19,13 +19,31 @@ public class UsuarioService {
     @Autowired
     UsuarioRepositorio repository;
 
+   
+    public List<Usuario> obterUsuarios() {
+        return repository.findAll();
+    }
+
+    public Optional<Usuario> obterUsuario(String email) {
+        Optional<Usuario> usuario;
+        usuario = repository.findByEmail(email);
+    
+        return usuario;
+    }
+
+    public Optional<Usuario> obterUsuario_m(Long matricula) {
+        Optional<Usuario> usuario;
+        usuario = repository.findById(matricula);
+    
+        return usuario;
+    }
+
     public Usuario efetuarLogin(String email, String senha) {
         Optional<Usuario> usr = repository.findByEmail(email);
         if (!usr.isPresent())
             throw new RegraPortifolioRunTime("Erro de autenticação. Email informado não encontrado");
         if (!usr.get().getSenha().equals(senha))
             throw new RegraPortifolioRunTime("Erro de autenticação. Senha inválida");
-        
         Usuario user = repository.ObterUsuario(email);
         return user;
     }

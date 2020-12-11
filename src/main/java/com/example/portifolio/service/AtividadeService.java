@@ -25,6 +25,9 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
+    public List<Atividade> obterAtividades() {
+        return repository.findAll();
+    }
 
     public Atividade salvar(Atividade ativ) {    
         verificaAtividade(ativ);
