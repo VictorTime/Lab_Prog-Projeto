@@ -58,9 +58,10 @@ public class UsuarioController {
     }
 
 
-    @PostMapping("/autenticar")
+    @PostMapping(value = "/autenticar",
+    consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {
-
+        
         try {
             Usuario autenticado = service.efetuarLogin(dto.getEmail(), dto.getSenha());
             return new ResponseEntity(autenticado, HttpStatus.OK);
@@ -72,6 +73,7 @@ public class UsuarioController {
 
     @GetMapping("/allusuarios")
     public List <Usuario> obterUsuarios() {
+   
         return this.repository.findAll();
     }
     

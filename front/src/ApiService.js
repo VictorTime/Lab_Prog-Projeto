@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
 
 const instance = axios.create({
     baseURL: 'http://localhost:8080',
@@ -10,23 +12,22 @@ class ApiService {
         this.apiUrl = apiUrl
     }
 
-    headers = {
-        option : {
-            "Access-Control-Allow-Origin": "*"
+ 
+    async post(url, objeto) {
+        const options = {
+            headers: {
+              "Access-Control-Allow-Credentials": true,
+            },
+          }
+        console.log(this.apiUrl + url)
+
+        const response = instance.post('http://localhost:8080/api/usuarios/autenticar',objeto, options)
+           return response;
         }
-    }
-    options = {
-        headers: {
-          "Access-Control-Allow-Credentials": true,
-        },
-      };
-    /**template string (crase) nos permite construir a URL concatenando variáveis dentro com ${}*/
-    post(url, objeto, option) {
-        return instance.post(`${this.apiUrl}${url}`, objeto, option)
-    }
+       
  
     put(url, objeto) {
-        return instance.put(`${this.apiUrl}${url}`, objeto,this.options)
+        return instance.put(`${this.apiUrl}${url}`, objeto)
     }
 
     delete(url) {

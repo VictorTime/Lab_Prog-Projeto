@@ -25,6 +25,7 @@ public class UsuarioService {
             throw new RegraPortifolioRunTime("Erro de autenticação. Email informado não encontrado");
         if (!usr.get().getSenha().equals(senha))
             throw new RegraPortifolioRunTime("Erro de autenticação. Senha inválida");
+        
         Usuario user = repository.ObterUsuario(email);
         return user;
     }

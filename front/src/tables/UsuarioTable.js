@@ -1,6 +1,5 @@
 import React from 'react' 
 
-
 function UsuariosTable(props){
 
 	  const row = props.Usuarios.map ( Usuarios => {

@@ -2,10 +2,10 @@ import React from 'react'
 import {HashRouter, Route, Switch} from 'react-router-dom'
 import Usuario from './pages/Usuario'
 
-import Cadastro from './pages/cadastro'
-import Atividades from './pages/atividades'
+import Cadastro from './pages/Cadastro'
+import Atividades from './pages/Atividades'
 import Curriculo    from './pages/Curriculo'
-import Login from './pages/login'
+import Login from './pages/Login'
 
 //Define as urls que poderão ser acessadas
 function Rotas(props) {

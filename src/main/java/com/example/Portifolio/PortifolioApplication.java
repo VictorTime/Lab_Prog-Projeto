@@ -24,8 +24,6 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 	@Override
 	public void addCorsMappings(CorsRegistry cors) {
 		cors.addMapping("/**")
-			.allowedOrigins("*")
-     		.allowedHeaders("*")
 			.allowedMethods("GET", "PUT", "DELETE", "POST", "OPTIONS");
 	}
 

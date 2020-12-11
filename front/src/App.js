@@ -7,7 +7,7 @@ import NavBar from './views/navbar'
 import SideBar from './views/sidebar'
 
 
-import Rotas from './rotas'
+import Rotas from './Rotas'
 /***/
 
 
