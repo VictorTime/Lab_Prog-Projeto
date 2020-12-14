@@ -3,12 +3,6 @@ import React from 'react'
 function Sidebar() {
     return (
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
-          <a href="#" className="brand-link">
-            <span 
-              className="brand-text font-weight-light">
-                  Usuario
-            </span>
-          </a>
           <div className="sidebar">
             <nav className="mt-2">
               <ul className="nav nav-pills nav-sidebar flex-column" 
@@ -16,9 +10,9 @@ function Sidebar() {
                   role="menu" 
                   data-accordion="false">
                 <li className="nav-item has-treeview">
-                  <a href="#/usuario" className="nav-link">
-                    <i className="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Usuarios</p>
+                  <a href="#/Login" className="nav-link">
+                    <i className="nav-icon fas fa-edit"></i>
+                    <p>Login</p>
                   </a>
                 </li>
                 <li className="nav-item has-treeview">

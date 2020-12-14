@@ -1,8 +1,21 @@
 import ApiService from '../ApiService'
+import axios from 'axios'
 
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 class AtividadeService extends ApiService {
     constructor () {
         super('/api/atividades')
+    }
+
+
+    obterAtividadesAll(){
+      const options = {
+        headers: {
+          "Access-Control-Allow-Credentials": true,
+        },
+      }
+      const response = axios.get('http://localhost:8080/api/atividades/allatvs')
+        return response
     }
 
     obterAtividades(usuario){

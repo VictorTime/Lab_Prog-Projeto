@@ -25,6 +25,12 @@ public class CurriculoTest {
 
 
 	 @Test
+     /*
+    deveVerificarSalvarCurriculo(): Faz um teste se os parametros da requisição do curriculo estão corretos  
+    Param1 <Curriculo> : Parametros para criar o objeto curriculo que contem informações das atividades de teste
+    Retorno <> : A função não tem retorno, apenas testes internos de comparação do curriculo salvo no repositorio com os parametros do curriculo
+                 criado originalmente
+    */
   public void deveVerificarSalvarCurriculo() {
     // cenário
     

@@ -7,7 +7,8 @@ import NavBar from './views/navbar'
 import SideBar from './views/sidebar'
 
 
-import Rotas from './Rotas'
+import Rotas from './rotas'
+import Sidebar from './views/sidebar';
 /***/
 
 
@@ -17,8 +18,10 @@ class App extends React.Component {
        return(
             <div className= "hold-transition sidebar-mini layout-fixed">
                 <div className= "wrapper">
-                   <NavBar href="#" label="Home" />
                    <Rotas/>
+                   <Sidebar/>
+                   <NavBar/>
+             
                 </div>
             </div>
           

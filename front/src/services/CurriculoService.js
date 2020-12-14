@@ -1,6 +1,7 @@
 import ApiService from '../ApiService'
-import Curriculo from '../pages/Curriculo'
+import axios from 'axios'
 
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 class CurriculoService extends ApiService {
    
     obterCurriculo(usuario) {
@@ -21,7 +22,7 @@ class CurriculoService extends ApiService {
               "Content-Type": "application/json;charset=UTF-8",
             },
           }
-        const response = axios.post('http://localhost:8080/api/curriculo/salvar',usuario, options)
+        const response = axios.post('http://localhost:8080/api/curriculo/salvar',curriculo, options)
            return response;
     }
 }

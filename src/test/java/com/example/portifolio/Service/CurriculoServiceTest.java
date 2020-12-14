@@ -28,6 +28,7 @@ public class CurriculoServiceTest {
     @Autowired
     CurriculoService service;
 
+    
     @Test
     public void deveRetornarTodosCurriculos() throws ParseException {
 

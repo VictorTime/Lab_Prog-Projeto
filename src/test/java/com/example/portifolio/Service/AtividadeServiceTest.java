@@ -3,6 +3,9 @@ package com.example.portifolio.Service;
 import java.text.ParseException;
 import java.util.List;
 
+/*
+Importação das classes de Serviço e os modelos de entidade e repositorio
+*/
 import com.example.Portifolio.Service.*;
 import com.example.Portifolio.model.entidade.*;
 import com.example.Portifolio.model.repositorio.*;
@@ -28,6 +31,12 @@ public class AtividadeServiceTest {
     AtividadeService service;
 
     @Test
+    /*
+    deveRetornarTodosAtividades(): Faz um teste se a requisição de todas as atividades salvas esta funcionando
+    Param1 <Atividade> : Parametros para criar o objeto atv que contem informações das atividades de teste
+    Retorno <> : A função não tem retorno, apenas um teste interno de comparação de tamanho do tamanho da lista de atividades encontrados
+                 com o tamanho da lista de atividades realmente criados 
+    */
     public void deveRetornarTodosAtividades() throws ParseException {
 
         Atividade atv1 = Atividade.builder().id_atv(33333)
@@ -55,30 +64,4 @@ public class AtividadeServiceTest {
         rep.delete(salvo2);
     }
 
-    @Test
-    public void deveRetornarAtividade() throws ParseException {
-
-        Atividade atv1 = Atividade.builder().id_atv(33334)
-                                                  .titulo("Sobre todos os poblemas...")
-                                                  .tipo_atv("dissertativa")
-                                                  .resumo("questão 2: dissertativa")
-                                                  .link("33334").build();
-
-        Atividade atv2 = Atividade.builder().id_atv(33335)
-                                                  .titulo("Sobre todos os poblemas...")
-                                                  .tipo_atv("dissertativa")
-                                                  .resumo("questão 2: dissertativa")
-                                                  .link("33334").build();                                               
-
-        Atividade salvo1 = rep.save(atv1);
-        Atividade salvo2 = rep.save(atv2);
-
-        // ação
-        List<Atividade> atvEncontrados = service.obterAtividades();
-
-        Assertions.assertEquals(atvEncontrados.size(), 2);
-
-        rep.delete(salvo1);
-        rep.delete(salvo2);
-    }
 }

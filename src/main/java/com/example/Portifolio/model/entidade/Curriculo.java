@@ -6,8 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,15 +31,10 @@ public class Curriculo {
     @Column (name = "formacao")
     private String formacao;
 
-    @ManyToMany
-    @JoinTable(
-        name = "Curriculo_Atividade", 
-        joinColumns = @JoinColumn(name = "id_curriculo"), 
-        inverseJoinColumns = @JoinColumn(name = "id_atv"))
-    Set<Atividade> curAtividades;
-
     @OneToOne
     @JoinColumn(name = "matricula")
     private Usuario usuario;
+
+    
 }
 

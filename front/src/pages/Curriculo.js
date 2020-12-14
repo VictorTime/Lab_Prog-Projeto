@@ -1,9 +1,6 @@
 import React from 'react'
-
-import CurriculoTable from '../tables/CurriculoTable'
 import CurriculoService from '../services/CurriculoService'
 
-import SectionContent from '../views/sectionContent'
 
 class Curriculo extends React.Component {
     
@@ -21,15 +18,16 @@ class Curriculo extends React.Component {
     }
 
     componentDidMount(){
-        localStorage.setItem("_usuario", JSON.stringify(57))
 
-        this.service.obterCurriculo(JSON.parse(localStorage.getItem("_usuario")))
+        this.service.obterCurriculo(JSON.parse(localStorage.getItem('usuario')))
             .then((response) => {
                 console.log(response.data)
-                this.setState( {curriculo:response.data}  )
+                this.setState( {curriculo:response.data})
             }).catch (erro =>{
                 console.log(erro.response)
             })
+
+        
     }
 
 

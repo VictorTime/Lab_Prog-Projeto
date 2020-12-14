@@ -3,6 +3,7 @@ package com.example.Portifolio.Service;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.Portifolio.model.entidade.Atividade;
 import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
 import com.example.Portifolio.model.repositorio.CurriculoRepositorio;

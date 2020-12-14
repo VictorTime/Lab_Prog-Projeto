@@ -22,6 +22,13 @@ public class AtividadeTest {
 
 
 	@Test
+    /*
+    deveVerificarSalvarAtividade(): Faz um teste se os parametros da requisição da atividade estão corretos  
+    Param1 <Atividade> : Parametros para criar o objeto atv que contem informações das atividades de teste
+    Retorno <> : A função não tem retorno, apenas testes internos de comparação da atividade salva no repositorio com os parametros da atividade
+                 criada originalmente
+    */
+    
   public void deveVerificarSalvarAtividade() {
     Atividade ativ = Atividade.builder().titulo("Testando123")
                                         .id_atv(Long.valueOf(123566))

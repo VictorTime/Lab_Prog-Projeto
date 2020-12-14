@@ -32,11 +32,21 @@ public class UsuarioController {
     @Autowired
     UsuarioRepositorio repository;
 
+    /*
+    UsuarioController():  Construtor da classe, apenas inicializa o service do Usuario 
+    Param1 <UsuarioService>   :  serviço do usuario usado para inicialização 
+    Retorno <> : sem retorno
+    */
     public UsuarioController(UsuarioService service) {
         this.service = service;
     }
 
     
+    /*
+    salvar()              : Responsavel por Salvar controlar o arquivamento dos objetos usuários
+    Param1 <UsuarioDTO>   : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @PostMapping(value = "/salvar",
     consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity salvar( @RequestBody UsuarioDTO dto) {
@@ -56,6 +66,11 @@ public class UsuarioController {
         }
     }
 
+   /*
+    autenticar()          : Controlador para trabalhar com as autenticação de usuarios  
+    Param1 <UsuarioDTO>   : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP para a autenticação
+    */
     @PostMapping("/autenticar")
     public ResponseEntity autenticar(@RequestBody UsuarioDTO dto) {
 
@@ -68,6 +83,11 @@ public class UsuarioController {
         }
     }
 
+    /*
+    obterUsuarios() : Lista de todos os usuarios salvos
+    Param1 <>   : 
+    Retorno <> : Retorna uma lista com todos os usuarios no banco
+    */
     @GetMapping("/allusuarios")
     public List <Usuario> obterUsuarios() {
         return this.repository.findAll();

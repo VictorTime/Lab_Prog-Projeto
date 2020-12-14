@@ -24,9 +24,9 @@ class Atividades extends React.Component{
     }
 
     componentDidMount() {
-        localStorage.setItem("_usuario", JSON.stringify(57))
-
-        this.service.obterAtividades(JSON.parse(localStorage.getItem("_usuario")))
+        
+        //this.service.obterAtividades(localStorage.getItem("_usuario"))
+        this.service.obterAtividadesAll()
         .then( response => {
             console.log(response.data)
             this.setState( {atividades : response.data} )
@@ -54,10 +54,9 @@ class Atividades extends React.Component{
                     </section>
 
                     <SectionContent>
-
                         <div className="card-body">
                             <div className="box-header">
-                                <Link to= "/cadastro">
+                                <Link to= "/cadastroatividade">
                                 <button  type="submit" className="btn btn-primary">Adicionar nova atividade</button>
                                 </Link>
                             </div>

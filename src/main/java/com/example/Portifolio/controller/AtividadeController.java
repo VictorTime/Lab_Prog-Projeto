@@ -1,11 +1,16 @@
 package com.example.Portifolio.controller;
 
+import java.util.List;
+
 import com.example.Portifolio.Service.AtividadeService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 import com.example.Portifolio.model.dto.AtividadeDTO;
+import com.example.Portifolio.model.dto.UsuarioDTO;
 import com.example.Portifolio.model.entidade.Atividade;
 import com.example.Portifolio.model.entidade.Curriculo;
+import com.example.Portifolio.model.entidade.CurriculoAtividade;
 import com.example.Portifolio.model.entidade.Usuario;
+import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
@@ -14,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -28,7 +34,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AtividadeController {
     @Autowired
     AtividadeService service;
+    @Autowired
+	AtividadeRepositorio repository;
 
+    /*
+    salvar()              : Responsavel por Salvar controlar o arquivamento dos objetos atividade
+    Param1 <AtividadeDTO> : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @PostMapping(value = "/salvar",
     consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity salvar(@RequestBody AtividadeDTO dto) {
@@ -39,7 +52,6 @@ public class AtividadeController {
                                     .resumo(dto.getResumo())
                                     .link(dto.getLink())
                                     .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
-                                    .aCurriculos(dto.getACurriculos())
                                     .build();
 
         
@@ -52,6 +64,11 @@ public class AtividadeController {
         }
     }
 
+    /*
+    atualizar()              : Responsavel por atualizar e controlar o arquivamento dos objetos atividade
+    Param1 <AtividadeDTO> : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @PutMapping("{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long idAtividade,
                                     @RequestBody AtividadeDTO dto) {
@@ -62,7 +79,6 @@ public class AtividadeController {
                                             .resumo(dto.getResumo())
                                             .link(dto.getLink())
                                             .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
-                                            .aCurriculos(dto.getACurriculos())
                                             .build();
             Atividade salvo = service.atualizar(pos);
             return ResponseEntity.ok(salvo);
@@ -74,7 +90,12 @@ public class AtividadeController {
         }
 
     }
-
+    
+     /*
+    remover()             : Responsavel pela remoção   dos objetos atividade
+    Param1 <idAtividade>  : Codigo unico da atividade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @DeleteMapping("{id}")
     public ResponseEntity remover(@PathVariable("id") Long idAtividade) {
         try {
@@ -87,6 +108,11 @@ public class AtividadeController {
         }
     }
 
+    /*
+    validar()             : Responsavel pela validação dos objetos atividade
+    Param1 <AtividadeDTO> : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @PostMapping("/validar")
     public ResponseEntity validar(@PathVariable("matricula") Long matricula,
                                 @RequestBody AtividadeDTO dto) {
@@ -105,4 +131,8 @@ public class AtividadeController {
         }
     }
 
+    @GetMapping("/allatvs")
+    public List <Atividade> obterAtividades() {
+        return this.repository.findAll();
+    }
 }

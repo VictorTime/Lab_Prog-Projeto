@@ -17,5 +17,5 @@ public class CurriculoDTO {
     private String escolaridade;
     private String formacao;
     private long matricula;
-    Set<Atividade> curAtividades;
+
 }

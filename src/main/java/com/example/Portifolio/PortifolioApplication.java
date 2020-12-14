@@ -11,6 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
 import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
 import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
+import com.example.Portifolio.model.entidade.Atividade;
+import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.entidade.Usuario;
 
 @EnableWebMvc
@@ -39,8 +41,12 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 
 	@Override
     public void run(String...args) throws Exception {
-        this.repository.save(new Usuario(37777283,"Ramesh", "rameshffff@gmail.com",0,"kkaksdj"));
-        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"kkaksdj"));
-        this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"masmdmas"));
+        Usuario robson= this.repository.save(new Usuario(1,"a", "abc@gmail.com",1,"1"));
+        this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"1"));
+		this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"1"));
+		
+		Curriculo rob =this.curRepository.save(new Curriculo(1,"a", "a",robson));
+		Atividade rep =this.atvRepository.save(new Atividade(1,"a","a","a","a", robson));
+		Atividade rep2 =this.atvRepository.save(new Atividade(2,"b","b","b","b", robson));
     }
 }	

@@ -7,7 +7,7 @@ class UsuarioService extends ApiService {
       
     obterUsuarios(){
         const response = axios.get('http://localhost:8080/api/usuarios/allusuarios')
-            return response
+          return response
     }
 
     autenticar(usuario) {

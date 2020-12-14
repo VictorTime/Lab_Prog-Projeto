@@ -24,6 +24,12 @@ public class UsuarioTest {
   UsuarioRepositorio repository;
 
   @Test
+  /*
+   deveVerificarSalvarUsuario(): Faz um teste se os parametros da requisição do Usuario estão corretos  
+    Param1 <Usuario> : Parametros para criar o objeto usuario que contem informações dos usuarios de teste
+    Retorno <> : A função não tem retorno, apenas testes internos de comparação do Usuario salvo no repositorio com os parametros do Usuario
+                 criado originalmente
+  */  
   public void deveVerificarSalvarUsuario() {
     // cenário
     
@@ -44,6 +50,12 @@ public class UsuarioTest {
   }
 
   @Test
+  /*
+   deveVerificarRemoverUsuario(): Faz um teste se a exclusão do Usuario funciona de forma adequada  
+    Param1 <Usuario> : Parametros para criar o objeto usuario que contem informações dos usuarios de teste
+    Retorno <> : A função não tem retorno, apenas testes internos de comparação do Usuario salvo no repositorio com os parametros do Usuario
+                 criado originalmente
+  */
   public void deveVerificarRemoverUsuario() {
       //cenário
       Usuario user = Usuario.builder().nome("Teste")

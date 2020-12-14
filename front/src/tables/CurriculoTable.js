@@ -9,15 +9,6 @@ function CurriculoTable(props){
                         <td>{Curriculo.escolaridade}</td>
                         <td>{Curriculo.formacao}</td>  
                         <td>{Curriculo.matricula}</td>                  
-                        <td>
-                            <div class="btn-group">
-                                <button onclick="window.location.href=&#39;#/curriculo&#39;" type="button" class="btn btn-warning">
-                                  Editar</button>
-                                <button onclick="button" class="btn btn-danger">
-                                  Remover</button>
-                          </div>                        
-                     </td>
-               
                </tr>
 
 

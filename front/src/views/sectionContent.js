@@ -12,7 +12,7 @@ function SectionContent(props){
                         <div className="card-header">
                             <h3 className="card-title"></h3>
                         <div class="card-tools">
-                            <Link to="/cadastro">
+                            <Link to="/cadastroatividade">
                                 <button type="button" class="btn btn-tool" data-card-widget="plus" data-toggle="tooltip" title="plus">
                                     <i><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" 
                                     xmlns="http://www.w3.org/2000/svg">

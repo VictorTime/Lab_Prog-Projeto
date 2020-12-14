@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.Portifolio.Service.CurriculoService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 import com.example.Portifolio.model.dto.CurriculoDTO;
+import com.example.Portifolio.model.entidade.Atividade;
 import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.entidade.Usuario;
 import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
@@ -32,6 +33,11 @@ public class CurriculoController {
     @Autowired
     CurriculoService service;
 
+    /*
+    salvar()              : Responsavel por Salvar controlar o arquivamento dos objetos curriculo
+    Param1 <CurriculoDTO> : Parametro que representaa abstração dos elementos principais da entidade 
+    Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
+    */
     @PostMapping(value = "/salvar",
     consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity salvar(@RequestBody CurriculoDTO dto) {
@@ -40,7 +46,6 @@ public class CurriculoController {
                                     .escolaridade(dto.getEscolaridade())
                                     .formacao(dto.getFormacao())
                                     .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
-                                    .curAtividades(dto.getCurAtividades())
                                     .build();
         try {
             Curriculo salvo = service.salvar(curriculo);
@@ -51,6 +56,10 @@ public class CurriculoController {
         }
     }
 
+    /*
+    obter()               : Responsavel por Salvar controlar o arquivamento dos objetos curriculo
+    Retorno <> : Retorna o estado de "ok" da entidade curriculo
+    */
     @GetMapping("/obter")
     public ResponseEntity buscarCurriculo(
                         @RequestParam(value="matricula", required=true) Long Matricula){
@@ -61,6 +70,8 @@ public class CurriculoController {
         List<Curriculo> curriculos = service.buscar(filtro);
 
         return ResponseEntity.ok(curriculos);
-    }   
+    }
+    
+    
 }
 

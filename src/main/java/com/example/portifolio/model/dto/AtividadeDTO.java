@@ -23,6 +23,6 @@ public class AtividadeDTO
     private String link;
     private String titulo;
     private long matricula;
-    Set<Curriculo> aCurriculos;
+
 
 }
