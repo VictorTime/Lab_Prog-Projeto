@@ -19,11 +19,13 @@ class Curriculo extends React.Component {
 
     componentDidMount(){
 
-        this.service.obterCurriculo(JSON.parse(localStorage.getItem('usuario')))
+        this.service.obterCurriculo(localStorage.getItem('usuario'))
             .then((response) => {
                 console.log(response.data)
+                localStorage.setItem('curriculo',response.data.id_curriculo)
                 this.setState( {curriculo:response.data})
             }).catch (erro =>{
+                window.document.location='#/cadastrocurriculo' 
                 console.log(erro.response)
             })
 

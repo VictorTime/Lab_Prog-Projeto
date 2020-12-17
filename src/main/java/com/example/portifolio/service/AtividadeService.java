@@ -25,18 +25,27 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
+    @Autowired
+    CurriculoAtividadeRepositorio relacRep;
+
     public List<Atividade> obterAtividades() {
         return repository.findAll();
     }
 
-    public Atividade salvar(Atividade ativ) {    
+    public Atividade salvar(Atividade ativ, CurriculoAtividade ca){
         verificaAtividade(ativ);
+        relacRep.save(ca);
         return repository.save(ativ);
     }
 
+    public Atividade sSalvar(Atividade ativ){
+        verificaAtividade(ativ);
+        return repository.save(ativ);
+    }
+    
     public Atividade atualizar(Atividade ativ) {
         verificarId(ativ);
-        return salvar(ativ);
+        return sSalvar(ativ);
     }
 
     public void remover(Atividade ativ) {        

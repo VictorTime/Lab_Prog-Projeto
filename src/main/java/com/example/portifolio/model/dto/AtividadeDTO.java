@@ -23,6 +23,7 @@ public class AtividadeDTO
     private String link;
     private String titulo;
     private long matricula;
+    private long id_curriculo;
 
 
 }

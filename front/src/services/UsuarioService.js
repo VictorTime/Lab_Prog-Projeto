@@ -16,8 +16,13 @@ class UsuarioService extends ApiService {
               "Access-Control-Allow-Credentials": true,
             },
           }
-        const response = axios.post('http://localhost:8080/api/usuarios/autenticar',usuario, options)
-           return response;
+        const response = axios.post('http://localhost:8080/api/usuarios/autenticar',usuario, options,
+        {
+          successRedirect : '/', 
+          failureRedirect : '/login', 
+          failureFlash : true
+        })
+        return response;
     }
 
     salvar(usuario) {
@@ -27,7 +32,12 @@ class UsuarioService extends ApiService {
               "Content-Type": "application/json;charset=UTF-8",
             },
           }
-        const response = axios.post('http://localhost:8080/api/usuarios/salvar',usuario, options)
+        const response = axios.post('http://localhost:8080/api/usuarios/salvar',usuario, options,
+        {
+          successRedirect : '/login', 
+          failureRedirect : '/cadastro', 
+          failureFlash : true
+        })
            return response;
     }
 }

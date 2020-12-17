@@ -1,7 +1,5 @@
 package com.example.Portifolio.model.dto;
 
-import java.util.Set;
-import com.example.Portifolio.model.entidade.Atividade;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,5 +15,6 @@ public class CurriculoDTO {
     private String escolaridade;
     private String formacao;
     private long matricula;
+    private long id_atv;
 
 }

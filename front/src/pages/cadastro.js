@@ -1,24 +1,47 @@
 import React, { Component } from 'react'
 import UsuarioService from '../services/UsuarioService'
 export class Cadastro extends Component {
-    
-    state={
-        matricula: "5555218",
-        nome: "Ramassad",
-        email: "samabsdasdasds@gmail.com",
-        tipo: "0",
-        senha: "1",   
-    }
-
-  
   constructor(){
     super()
     this.service = new UsuarioService()
+    this.state={
+        matricula: "",
+        nome: "",
+        email: "",
+        tipo: "",
+        senha: "", 
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeMatricula =  this.handleChangeMatricula.bind(this);
+    this.handleChangeNome = this.handleChangeNome.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangeTipo = this.handleChangeTipo.bind(this);
+    this.handleChangeSenha = this.handleChangeSenha.bind(this);
     }
     
+    handleChangeMatricula(event) {
+        this.setState({matricula: event.target.value});
+    }
     
-    
-    salvar(){
+    handleChangeNome(event) {
+        this.setState({nome: event.target.value});
+    }
+
+    handleChangeEmail(event) {
+        this.setState({email: event.target.value});
+    }
+
+    handleChangeTipo(event) {
+        this.setState({tipo: event.target.value});
+    }
+
+    handleChangeSenha(event) {
+        this.setState({senha: event.target.value});
+    }
+        
+    handleSubmit(event) {
+        let isMounted = true;
         const usuario ={
             matricula: this.state.matricula,
             nome: this.state.nome,
@@ -30,11 +53,19 @@ export class Cadastro extends Component {
         this.service.salvar(usuario)
             .then((response) => {
                 console.log(response.data)
-                this.setState( {usuario:response.data})
+                if (isMounted) this.setState( {usuario:response.data})
+                window.document.location='#/login'
             }).catch ((erro) =>{
                 console.log(erro)
             })
-      }
+        isMounted = false
+        alert('Um nome foi enviado: ' + this.state.email);
+        event.preventDefault();
+
+
+      
+    }
+    
     render() {
         <body className="hold-transition register-page" data-new-gr-c-s-check-loaded="14.987.0" data-gr-ext-installed=""></body>
         return (
@@ -56,11 +87,11 @@ export class Cadastro extends Component {
                         <p className="login-box-msg">Novo Usuario No Portifolio</p>
                     </div>
 
-                    <form action="#/login">
+                    <form action="#/login" onSubmit={this.handleSubmit} >
 
                         <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Matricula"
-                        value ={this.state.matricula} onChange={(e) => this.setState({matricula:e.target.value})}/>
+                        <input type="number" className="form-control" placeholder="Matricula"
+                        value ={this.state.matricula} onChange={this.handleChangeMatricula}/>
                         <div className="input-group-append">
                             <div className="input-group-text">
                             <span className="fas fa-envelope"></span>
@@ -68,8 +99,8 @@ export class Cadastro extends Component {
                         </div>
                         </div>
                         <div className="input-group mb-3">
-                        <input type="text" className="form-control" placeholder="Nome completo"
-                        value ={this.state.nome} onChange={(e) => this.setState({nome:e.target.value})}/>
+                        <input type="text" className="form-control" placeholder="Nome Completo"
+                        value ={this.state.nome} onChange={this.handleChangeNome}/>
                         <div className="input-group-append">
                             <div className="input-group-text">
                             <span className="fas fa-user"></span>
@@ -78,7 +109,7 @@ export class Cadastro extends Component {
                         </div>
                         <div className="input-group mb-3">
                         <input type="email" className="form-control" placeholder="Email"
-                        value ={this.state.email} onChange={(e) => this.setState({email:e.target.value})}/>
+                        value ={this.state.email} onChange={this.handleChangeEmail}/>
                         <div className="input-group-append">
                             <div className="input-group-text">
                             <span className="fas fa-envelope"></span>
@@ -87,7 +118,7 @@ export class Cadastro extends Component {
                         </div>
                         <div className="input-group mb-3">
                         <input type="password" className="form-control" placeholder="Senha"
-                        value ={this.state.senha} onChange={(e) => this.setState({senha:e.target.value})}/>
+                        value ={this.state.senha} onChange={this.handleChangeSenha}/>
                         <div className="input-group-append">
                             <div className="input-group-text">
                             <span className="fas fa-lock"></span>
@@ -96,7 +127,7 @@ export class Cadastro extends Component {
                         </div>
                         <div className="input-group mb-3">
                         <input type="number" className="form-control" placeholder="1 para Docente, 2 para Discente" placeholder="Tipo"
-                        value ={this.state.tipo} onChange={(e) => this.setState({tipo:e.target.value})}/>
+                        value ={this.state.tipo} onChange={this.handleChangeTipo}/>
                         <div className="input-group-append">
                             <div className="input-group-text">
                             <span className="fas fa-lock"></span>
@@ -105,7 +136,7 @@ export class Cadastro extends Component {
                         </div>
                         <div className="row">
                         <div className="col-4">
-                            <button onClick='#/login' type="submit" className="btn btn-primary btn-block">Registrar</button>
+                            <button href="#/login" type="submit" className="btn btn-primary btn-block">Registrar</button>
                         </div>
 
                         </div>

@@ -47,6 +47,7 @@ public class AtividadeController {
     public ResponseEntity salvar(@RequestBody AtividadeDTO dto) {
         
         Atividade atividade = Atividade.builder()
+                                    .id_atv(dto.getId_atv())
                                     .titulo(dto.getTitulo())
                                     .tipo_atv(dto.getTipo_atv())
                                     .resumo(dto.getResumo())
@@ -54,9 +55,13 @@ public class AtividadeController {
                                     .usuario(Usuario.builder().matricula(dto.getMatricula()).build())
                                     .build();
 
+        CurriculoAtividade relacao = CurriculoAtividade.builder()
+                                    .curriculo(Curriculo.builder().id_curriculo(dto.getId_curriculo()).build())
+                                    .atividade(Atividade.builder().id_atv(dto.getId_curriculo()).build())
+                                    .build();
         
         try {
-            Atividade salvo = service.salvar(atividade);
+            Atividade salvo = service.salvar(atividade, relacao);
             return new ResponseEntity(salvo, HttpStatus.CREATED);
         }
         catch (RegraPortifolioRunTime e) {
