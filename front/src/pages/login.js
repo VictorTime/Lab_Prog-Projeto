@@ -30,23 +30,22 @@ class Login extends React.Component {
       email: this.state.email,
       senha: this.state.senha
     }
-    
-    console.log(usuario)
+    var store = require('store')
     this.service.autenticar(usuario)
         .then((response) => {
             console.log(response.data)
             if (isMounted) this.setState( {usuario:response.data})
-            localStorage.setItem('usuario',(response.data.matricula))
-            console.log(localStorage.getItem('usuario'))
-            window.document.location='#/curriculo' 
+            store.set('usuario',response.data)
+            console.log(store.get('usuario'))
         }).catch ((erro) =>{
-            console.log(erro)
+          alert("o login inválido");
+          event.preventDefault();
+          console.log(erro)
+          window.document.location='#/login' 
         })
+        window.document.location='#/curriculo' 
     isMounted = false;  
-    alert('o email foi enviado: ' + this.state.email);
-    event.preventDefault();
 
-    
   }
   
     render() {
@@ -93,7 +92,7 @@ class Login extends React.Component {
 
               <div className="row">
                 <div className="col-4">
-                <button href="#/atividades" type="submit" className="btn btn-primary btn-block">Entrar</button>
+                <button type="submit" className="btn btn-primary btn-block">Entrar</button>
                 </div>
               </div>
             </form>

@@ -23,16 +23,24 @@ class Atividades extends React.Component{
         
     }
 
-    componentDidMount() {
-        
-        //this.service.obterAtividades(localStorage.getItem("_usuario"))
-        this.service.obterAtividadesAll()
+    componentDidMount(event) {
+        var store = require('store')
+        console.log(store.get('usuario'))
+        console.log(store.get('curriculo'))
+        if(store.get('usuario')!= null){
+        this.service.obterAtividades(store.get('usuario'))
         .then( response => {
             console.log(response.data)
-            this.setState( {atividades : response.data} )
+            this.setState( {atividades : response.data})
         }).catch (erro => {
             console.log(erro.response)
         })
+
+        }else{
+        alert('Voce nao fez o login');
+        window.document.location='#/login'
+
+        }  
     }
 
 

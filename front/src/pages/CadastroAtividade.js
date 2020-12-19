@@ -43,6 +43,10 @@ export class CadastroAtividade extends Component {
     
     handleSubmit(event) {
 
+        var store = require('store')
+
+        if(store.get('usuario')){
+            if(store.get('curriculo')){
             let isMounted = true;
             const atividade ={
                 id_atv: Math.floor(Math.random()*10000),
@@ -50,21 +54,30 @@ export class CadastroAtividade extends Component {
                 resumo: this.state.resumo,
                 link: this.state.link,
                 titulo: this.state.titulo,
-                matricula:localStorage.getItem('usuario'),
+                matricula:store.get('usuario').matricula,
             }
             
-
+            console.log(atividade)
             this.service.salvar(atividade)
                 .then((response) => {
                     console.log(response.data)
                     if(isMounted) this.setState( {atividade:response.data})
-                    window.document.location='#/atividades' 
                 }).catch ((erro) =>{
                     console.log(erro)
                 })
+    
+            alert('O titulo foi enviado: ' + this.state.titulo);
+            event.preventDefault();
             isMounted = false;
-        alert('Um nome foi enviado: ' + this.state.titulo);
-        event.preventDefault();
+
+            }else{
+                alert('Voce não fez o curriculo');
+                window.document.location='#/cadastrocurriculo' 
+            }
+        }else{
+            alert('Voce não fez o login');
+            window.document.location='#/login' 
+        }
     }
 
     
@@ -75,14 +88,8 @@ export class CadastroAtividade extends Component {
            <div className ="content-wrapper">
                <section className="content-header">
                     <div className="container-fluid">
-                        <div className="row mb-2"></div>
-                    </div>
-                    </section>
-                <div className="cadastro_atv-box">
-                    <div className="cadastro_atv-logo">
-                    </div>
-
-                    <div className="card">
+                        <div className="row">
+                        <div className="card">
                         <div className="card-body register-card-body">
                             <p className="login-box-msg">Novo cadastro de Atividade no Portifolio</p>
                         </div>
@@ -132,6 +139,13 @@ export class CadastroAtividade extends Component {
                             </div>
                         </form>
                     </div>
+                        </div>
+                    </div>
+                    </section>
+                <div className="cadastro_atv-box">
+                    <div className="cadastro_atv-logo">
+                    </div>
+
                 </div>
             </div>
         )

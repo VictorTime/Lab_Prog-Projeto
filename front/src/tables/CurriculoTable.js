@@ -7,8 +7,7 @@ function CurriculoTable(props){
 	  	return(
              <tr key = {Curriculo.id_curriculo}>
                         <td>{Curriculo.escolaridade}</td>
-                        <td>{Curriculo.formacao}</td>  
-                        <td>{Curriculo.matricula}</td>                  
+                        <td>{Curriculo.formacao}</td>          
                </tr>
 
 
@@ -20,7 +19,6 @@ function CurriculoTable(props){
           <table id="example1" {...props}>
                   <thead>
                   <tr>
-                    <th>matricula</th>
                     <th>formacao</th>
                     <th>escolaridade</th>
                   </tr>

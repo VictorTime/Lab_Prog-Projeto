@@ -1,16 +1,16 @@
+
 import React from 'react'
 import UsuarioService from '../services/UsuarioService';
-import UsuarioTable from '../tables/UsuarioTable'
+
 
 class Usuario extends React.Component {
 
-    state={
-        usuario:[]
-    }
-
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.service = new UsuarioService()
+        this.state={
+            usuario:[]
+            }
         }
 
 

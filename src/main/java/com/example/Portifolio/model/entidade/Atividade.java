@@ -36,6 +36,5 @@ public class Atividade {
     @OneToOne
     @JoinColumn(name = "matricula")
     private Usuario usuario;
-    
 }
 

@@ -8,9 +8,6 @@ import com.example.Portifolio.model.repositorio.*;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -25,27 +22,18 @@ public class AtividadeService {
     @Autowired
     CurriculoRepositorio curricRep;
 
-    @Autowired
-    CurriculoAtividadeRepositorio relacRep;
-
     public List<Atividade> obterAtividades() {
         return repository.findAll();
     }
 
-    public Atividade salvar(Atividade ativ, CurriculoAtividade ca){
-        verificaAtividade(ativ);
-        relacRep.save(ca);
-        return repository.save(ativ);
-    }
-
-    public Atividade sSalvar(Atividade ativ){
+    public Atividade salvar(Atividade ativ){
         verificaAtividade(ativ);
         return repository.save(ativ);
     }
     
     public Atividade atualizar(Atividade ativ) {
         verificarId(ativ);
-        return sSalvar(ativ);
+        return salvar(ativ);
     }
 
     public void remover(Atividade ativ) {        
@@ -59,13 +47,8 @@ public class AtividadeService {
     }
 
     public List<Atividade> buscar (Atividade filtro) {
-        Example<Atividade> example = 
-        Example.of(filtro, ExampleMatcher.matching()
-                                        .withIgnoreCase()
-                                        .withStringMatcher(StringMatcher.CONTAINING)
-                                        );
-
-        return repository.findAll(example);                                                           
+        List<Atividade> atividades = repository.findByUsuario(filtro.getUsuario());
+        return atividades;
     }
     
 

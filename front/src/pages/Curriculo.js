@@ -3,51 +3,70 @@ import CurriculoService from '../services/CurriculoService'
 
 
 class Curriculo extends React.Component {
-    
-    state = {
-        curriculo :[]
-    }
 
     constructor() {
         super()
         this.service = new CurriculoService()
-    }
-
-    salvar = () => {
-        
+        this.state = {
+            curriculo :[]
+        }
     }
 
     componentDidMount(){
-
-        this.service.obterCurriculo(localStorage.getItem('usuario'))
+        
+        var store = require('store')
+        
+        if(store.get('usuario')!=null){
+            this.service.obterCurriculo(store.get('usuario'))
             .then((response) => {
                 console.log(response.data)
-                localStorage.setItem('curriculo',response.data.id_curriculo)
-                this.setState( {curriculo:response.data})
+                this.setState( {curriculo:response.data} )
+              
+                store.set('curriculo',response.data)
+               
+               
             }).catch (erro =>{
-                window.document.location='#/cadastrocurriculo' 
                 console.log(erro.response)
             })
+        }else{
+            alert('Login não iniciado');
+            window.document.location='#/cadastrocurriculo'
+        }
 
-        
+        console.log(this.state.curriculo)
+
+            
     }
 
 
 	render() {
 
         return (
-            <>
-                <div className="content-wrapper">
-                    <section className="content-header">
-                    <div className="container-fluid">
-                        <div className="row mb-2">
-                        <div className="col-sm-6">
-                        </div>
-                        </div>
-                    </div>
-                    </section>
-                </div>
-            </>
+            <div className="content-wrapper">
+                <h1 className = "text-center">Curriculo</h1>
+                <table className = "table table-striped">
+                    <thead>
+                        <tr>
+                            <td> Formação</td>
+                            <td> Escolaridade</td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.curriculo.map(
+                                curriculo => 
+                                <tr key = {curriculo.id_curriculo}>
+                                    <td> {curriculo.formacao}</td>   
+                                    <td> {curriculo.escolaridade}</td>   
+                                </tr>
+                            )
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
         )
     }
 }

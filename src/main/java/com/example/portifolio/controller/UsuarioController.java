@@ -5,9 +5,6 @@ import com.example.Portifolio.model.entidade.Usuario;
 import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
 
 import java.util.List;
-
-import javax.validation.Valid;
-
 import com.example.Portifolio.Service.UsuarioService;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 

@@ -3,7 +3,7 @@ package com.example.portifolio.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.Portifolio.model.dto.AtividadeDTO;
 import com.example.Portifolio.model.entidade.Atividade;
-import com.example.Portifolio.model.entidade.CurriculoAtividade;
+
 import com.example.Portifolio.Service.AtividadeService;
 
 import org.junit.jupiter.api.Test;
@@ -49,7 +49,7 @@ public class AtividadeControllerTest {
 		Atividade atividade = Atividade.builder().id_atv(123456L).titulo("123").resumo("abc def").build();
 
 		// mock salvar
-		Mockito.when(service.salvar(Mockito.any(Atividade.class),Mockito.any(CurriculoAtividade.class))).thenReturn(atividade);
+		Mockito.when(service.salvar(Mockito.any(Atividade.class))).thenReturn(atividade);
 		String json = new ObjectMapper().writeValueAsString(dto);
 
 		// ação

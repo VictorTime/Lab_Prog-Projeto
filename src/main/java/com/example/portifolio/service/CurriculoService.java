@@ -3,7 +3,7 @@ package com.example.Portifolio.Service;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Portifolio.model.entidade.Atividade;
+
 import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
 import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
@@ -11,9 +11,6 @@ import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
 import com.example.Portifolio.Service.exceptions.RegraPortifolioRunTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -54,13 +51,8 @@ public class CurriculoService {
     }
 
     public List<Curriculo> buscar (Curriculo filtro) {
-        Example<Curriculo> example = 
-        Example.of(filtro, ExampleMatcher.matching()
-                                        .withIgnoreCase()
-                                        .withStringMatcher(StringMatcher.CONTAINING)
-                                        );
-
-        return curricRep.findAll(example);                                                           
+        List<Curriculo> curriculo = curricRep.findByUsuario(filtro.getUsuario());
+        return curriculo;                                                           
     }
     
 

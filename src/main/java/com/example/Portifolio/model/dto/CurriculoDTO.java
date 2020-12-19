@@ -15,6 +15,6 @@ public class CurriculoDTO {
     private String escolaridade;
     private String formacao;
     private long matricula;
-    private long id_atv;
+   
 
 }

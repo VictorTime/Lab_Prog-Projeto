@@ -27,32 +27,39 @@ export class CadastroCurriculo extends Component {
     
     handleSubmit(event) {
 
+        var store = require('store')
+
+        if(store.get('usuario')){
             let isMounted = true;
             const curriculo ={
                 id_curriculo: Math.floor(Math.random()*10000),
                 escolaridade: this.state.escolaridade,
                 formacao: this.state.formacao,
-                matricula:localStorage.getItem('usuario'),
+                matricula:store.get('usuario').matricula,
             }
             
+            console.log(curriculo)
 
             this.service.salvar(curriculo)
                 .then((response) => {
                     console.log(response.data)
                     if(isMounted) this.setState( {curriculo:response.data})
-                    localStorage.setItem('curriculo',curriculo.id_curriculo)
-                    window.document.location='#/atividades' 
+                    alert('Um nome foi enviado: ' + this.state.formacao);
+                    event.preventDefault();
+                    store.set('curriculo',response.data)
+                    window.document.location='#/curriculo' 
                 }).catch ((erro) =>{
-                    
-                    console.log(erro)
+                    console.log(erro.data)
                 })
             isMounted = false;
-        alert('Um nome foi enviado: ' + this.state.formacao);
-        event.preventDefault();
-    }
-
+           
+        }else{
+            alert('Login nao efetuado, por favor, retorne a pagina de login')
+            event.preventDefault();
+            window.document.location='#/login'
+        }
     
-
+    }
     render() {
         <body className="hold-transition register-page" data-new-gr-c-s-check-loaded="14.987.0" data-gr-ext-installed=""></body>
         return (

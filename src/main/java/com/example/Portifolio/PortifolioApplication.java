@@ -9,10 +9,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.example.Portifolio.model.repositorio.AtividadeRepositorio;
-import com.example.Portifolio.model.repositorio.CurriculoRepositorio;
 import com.example.Portifolio.model.repositorio.UsuarioRepositorio;
 import com.example.Portifolio.model.entidade.Atividade;
-import com.example.Portifolio.model.entidade.Curriculo;
 import com.example.Portifolio.model.entidade.Usuario;
 
 @EnableWebMvc
@@ -32,9 +30,6 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
 	@Autowired
 	private UsuarioRepositorio repository;
 
-	@Autowired
-	private CurriculoRepositorio curRepository;
-
 	@Autowired 
 	private AtividadeRepositorio atvRepository;
 	
@@ -44,5 +39,7 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
         Usuario robson= this.repository.save(new Usuario(1,"a", "abc@gmail.com",1,"1"));
         this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"1"));
 		this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"1"));
+
+		this.atvRepository.save(new Atividade(1,"audhsads","ahdsud","haudsusdah","aduhasd", robson));
     }
 }	

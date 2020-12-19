@@ -4,22 +4,23 @@ import axios from 'axios'
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 class CurriculoService extends ApiService {
    
-    obterCurriculo(usuario) {
+    obterCurriculo(matricula) {
         const options = {
             headers: {
               "Access-Control-Allow-Credentials": true,
+
             },
           }
-        const response = axios.post('http://localhost:8080/api/curriculo/obter',usuario, options)
-           return response;
+        const response = axios.post('http://localhost:8080/api/curriculo/obter',matricula, options)
+        console.log(response);
+        return response;
     }
 
 
     salvar(curriculo) {
         const options = {
             headers: {
-              "Access-Control-Allow-Credentials": true,
-              "Content-Type": "application/json;charset=UTF-8",
+              "Access-Control-Allow-Credentials": true,             
             },
           }
         const response = axios.post('http://localhost:8080/api/curriculo/salvar',curriculo, options)
