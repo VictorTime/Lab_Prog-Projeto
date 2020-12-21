@@ -11,7 +11,8 @@ export class CadastroAtividade extends Component {
             tipo:"",
             resumo:"",
             link:"",
-            titulo:""
+            titulo:"",
+            cod:""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +23,7 @@ export class CadastroAtividade extends Component {
         this.handleChangeTitulo = this.handleChangeTitulo.bind(this);
     }
     
+
     handleChangeId(event) {
         this.setState({id: event.target.value});
     }
@@ -54,7 +56,8 @@ export class CadastroAtividade extends Component {
                 resumo: this.state.resumo,
                 link: this.state.link,
                 titulo: this.state.titulo,
-                matricula:store.get('usuario').matricula,
+                cod:store.get('usuario').matricula,
+               
             }
             
             console.log(atividade)
@@ -65,10 +68,11 @@ export class CadastroAtividade extends Component {
                 }).catch ((erro) =>{
                     console.log(erro)
                 })
-    
-            alert('O titulo foi enviado: ' + this.state.titulo);
+            
+            alert('Atividade Salva');
             event.preventDefault();
             isMounted = false;
+            window.document.location='#/atividades' 
 
             }else{
                 alert('Voce não fez o curriculo');
@@ -113,6 +117,8 @@ export class CadastroAtividade extends Component {
                                 </div>
                             </div>
                             </div>
+
+                            
                             <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="Titulo"
                             value ={this.state.titulo} onChange={this.handleChangeTitulo}/>
@@ -122,6 +128,7 @@ export class CadastroAtividade extends Component {
                                 </div>
                             </div>
                             </div>
+                            
                             <div className="input-group mb-3">
                             <input type="text" className="form-control" placeholder="Link para atividade"
                             value ={this.state.link} onChange={this.handleChangeLink}/>

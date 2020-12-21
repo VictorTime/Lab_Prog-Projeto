@@ -40,6 +40,5 @@ public class PortifolioApplication  implements CommandLineRunner, WebMvcConfigur
         this.repository.save(new Usuario(37183718,"Ramesh", "rameshsss@gmail.com",0,"1"));
 		this.repository.save(new Usuario(99999999,"Ramesh", "rameshwwwww@gmail.com",1,"1"));
 
-		this.atvRepository.save(new Atividade(1,"audhsads","ahdsud","haudsusdah","aduhasd", robson));
     }
 }	

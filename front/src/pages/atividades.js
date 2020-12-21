@@ -2,7 +2,6 @@ import React from 'react'
 
 
 import AtividadesTable from '../tables/AtividadesTable'
-import SectionContent from '../views/sectionContent'
 
 import AtividadeService from '../services/AtividadeService'
 import { Link } from 'react-router-dom'
@@ -17,11 +16,33 @@ class Atividades extends React.Component{
     constructor() {
         super()
         this.service = new AtividadeService()
+        this.handleSubmit=this.handleSubmit.bind(this)
     }
 
-    salvar = () => {
-        
-    }
+    handleSubmit(event) {
+
+        let isMounted = true;
+        const usuario ={
+          email: this.state.email,
+          senha: this.state.senha
+        }
+        var store = require('store')
+        this.service.autenticar(usuario)
+            .then((response) => {
+                console.log(response.data)
+                if (isMounted) this.setState( {usuario:response.data})
+                store.set('usuario',response.data)
+                console.log(store.get('usuario'))
+            }).catch ((erro) =>{
+              alert("o login inválido");
+              event.preventDefault();
+              console.log(erro)
+              window.document.location='#/login' 
+            })
+            window.document.location='#/curriculo' 
+        isMounted = false;  
+    
+      }
 
     componentDidMount(event) {
         var store = require('store')
@@ -48,33 +69,55 @@ class Atividades extends React.Component{
 
         return (
             <>
+                
                 <div className="content-wrapper">
-                    <AtividadesTable 
-                                    className="table table-bordered table-hover"
-                                    atividades={this.state.atividades} />
-                    <section className="content-header">
-                    <div className="container-fluid">
-                        <div className="row mb-2">
-                        <div className="col-sm-6">
-                        </div>
-                        </div>
-                    </div>
-                    </section>
-
-                    <SectionContent>
-                        <div className="card-body">
-                            <div className="box-header">
-                                <Link to= "/cadastroatividade">
-                                <button  type="submit" className="btn btn-primary">Adicionar nova atividade</button>
-                                </Link>
-                            </div>
-                        </div>
-
-                        <AtividadesTable 
-                                    className="table table-bordered table-hover"
-                                    atividades={this.state.atividades} />
-                    </SectionContent> 
+                <section className="content">
+            <div className="container-fluid">
+                <div className="row">
+                <div className="col-12">
+                    <div className="card">
+                        
+                        <div className="card-header">
+                            <h3 className="card-title"></h3>
                             
+                            <AtividadesTable className="table table-bordered table-hover"
+                                            atividades={this.state.atividades} 
+                            
+                            />
+
+                            <section className="content-header">
+                            <div className="container-fluid">
+                                <div className="row mb-2">
+                                <div className="col-sm-6">
+                                </div>
+                                </div>
+                            </div>
+                            
+                            
+                            </section>
+                        <div class="card-tools">
+                            <Link to="/cadastroatividade">
+                                <button type="button" class="btn btn-tool" data-card-widget="plus" data-toggle="tooltip" title="plus">
+                                    <i><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" 
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM704 536c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"></path></svg>
+                                    </i>
+                                </button>
+                            </Link>
+
+                            <Link to="/remover">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                                <i class="fas fa-times"></i></button>
+                            </Link>
+                        </div>
+                       </div>
+                    </div>
+                </div>      
+                </div> 
+            </div> 
+            </section>
+
+                    
                 </div>
             </>
         )

@@ -18,7 +18,9 @@ class App extends React.Component {
        return(
             <div className= "hold-transition sidebar-mini layout-fixed">
                 <div className= "wrapper">
-                   <Rotas/>
+                    <NavBar/>
+                        <Rotas/>
+                    <SideBar/>
                 </div>
             </div>
           

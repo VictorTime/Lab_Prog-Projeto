@@ -99,7 +99,7 @@ class Login extends React.Component {
           </div>
         </div>
         <p className="mb-0">
-          <a href="#/cadastro" className="btn btn-primary btn-block">Criar uma conta</a>
+          <a href="#/cadastro" className="btn btn-primary btn-block">Criar uma conta Aluno</a>
         </p>
        </div>
        </section>

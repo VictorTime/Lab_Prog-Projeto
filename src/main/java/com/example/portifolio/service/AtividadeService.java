@@ -56,7 +56,7 @@ public class AtividadeService {
         if ((ativ == null) || (ativ.getId_atv() == 0))
             throw new RegraPortifolioRunTime("Atividade sem id");
     }
-
+    
     public boolean validar(Long matricula, Atividade ativ){
         verificarId(ativ);
         if( matricula != ativ.getUsuario().getMatricula() )

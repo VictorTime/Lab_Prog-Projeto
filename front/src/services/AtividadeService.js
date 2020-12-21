@@ -37,6 +37,17 @@ class AtividadeService extends ApiService {
         const response = axios.post('http://localhost:8080/api/atividades/salvar',atividade, options)
            return response;
     }
+
+    remover(atividade){
+      const options = {
+          headers: {
+            "Access-Control-Allow-Credentials": true,
+            "Content-Type": "application/json;charset=UTF-8",
+          },
+        }
+      const response = axios.post('http://localhost:8080/api/atividades/salvar',atividade, options)
+         return response;
+  }
     /* Tem que ajeitar no backend
     validar(matricula_professor, atividade) {
         const options = {

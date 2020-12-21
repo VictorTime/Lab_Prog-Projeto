@@ -95,10 +95,11 @@ public class AtividadeController {
     Param1 <idAtividade>  : Codigo unico da atividade 
     Retorno <> : Retorna, apos fazer um tratamento de excessão, o estado da requisição HTTP
     */
-    @DeleteMapping("/delete")
-    public ResponseEntity remover(@RequestParam(value="id", required=true) Long idAtividade){
+    @DeleteMapping("/remover")
+    public ResponseEntity remover(@RequestBody AtividadeDTO dto){
+
         try {
-            Atividade pos = Atividade.builder().id_atv(idAtividade).build();
+            Atividade pos = Atividade.builder().id_atv(dto.getId_atv()).build();
             service.remover(pos);
             return ResponseEntity.ok(HttpStatus.NO_CONTENT);
         }

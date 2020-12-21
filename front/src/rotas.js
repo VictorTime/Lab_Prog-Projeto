@@ -8,6 +8,9 @@ import Login from './pages/Login'
 import CadastroAtividade from './pages/CadastroAtividade'
 import NameForm from './pages/NameForm'
 import CadastroCurriculo from './pages/CadastroCurriculo'
+import RemoverAtv from './pages/RemoverAtv'
+import Logout from './pages/Logout'
+
 
 //Define as urls que poderão ser acessadas
 function Rotas() {
@@ -23,6 +26,8 @@ function Rotas() {
                    <Route path = "/login" component ={Login}/>
                    <Route path = "/form" component = {NameForm}/>
                    <Route path = "/cadastrocurriculo" component = {CadastroCurriculo}/>
+                   <Route path ="/remover" component ={RemoverAtv}/>
+                   <Route path ="/logout" component = {Logout}/>
               </Switch>
           </HashRouter>
                    
