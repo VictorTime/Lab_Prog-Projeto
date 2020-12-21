@@ -19,35 +19,11 @@ class Atividades extends React.Component{
         this.handleSubmit=this.handleSubmit.bind(this)
     }
 
-    handleSubmit(event) {
-
-        let isMounted = true;
-        const usuario ={
-          email: this.state.email,
-          senha: this.state.senha
-        }
-        var store = require('store')
-        this.service.autenticar(usuario)
-            .then((response) => {
-                console.log(response.data)
-                if (isMounted) this.setState( {usuario:response.data})
-                store.set('usuario',response.data)
-                console.log(store.get('usuario'))
-            }).catch ((erro) =>{
-              alert("o login inválido");
-              event.preventDefault();
-              console.log(erro)
-              window.document.location='#/login' 
-            })
-            window.document.location='#/curriculo' 
-        isMounted = false;  
-    
-      }
-
     componentDidMount(event) {
         var store = require('store')
         console.log(store.get('usuario'))
         console.log(store.get('curriculo'))
+
         if(store.get('usuario')!= null){
         this.service.obterAtividades(store.get('usuario'))
         .then( response => {

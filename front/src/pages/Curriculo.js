@@ -19,18 +19,21 @@ class Curriculo extends React.Component {
         if(store.get('usuario')!=null){
             this.service.obterCurriculo(store.get('usuario'))
             .then((response) => {
+                if(response.data==={}){
+                    alert('Usuario não possui curriculo');
+                    window.document.location='#/cadastrocurriculo'
+                }
+                
                 console.log(response.data)
                 this.setState( {curriculo:response.data} )
-              
                 store.set('curriculo',response.data)
-               
                
             }).catch (erro =>{
                 console.log(erro.response)
             })
         }else{
             alert('Login não iniciado');
-            window.document.location='#/cadastrocurriculo'
+            window.document.location='#/login'
         }
 
         console.log(this.state.curriculo)
